@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html class="no-icon-fonts" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+    <title>Aide Québec</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/main.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  </head>
+  <body>    
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+              <div class="reg-block" id="registerBlock">
+                  <a href="#"><img src="img/logo-blue.png" alt="" /></a>
+                  <h2 class="reg-block__heading">Verify OTP</h2>
+                  <h5 class="reg-block__sub-heading">Please enter the One Time Password sent to your mobile number and email id.</h5>
+                   <p class="reg-block__notes">Expires in 90 Seconds</p>                 
+                  <form class="row">
+                    <div class="form-group col-lg-6 col-md-6 col-sm-12 flex">
+                      <input type="text" class="form-control form-control-lg form-control-digit" id="digit1" autocomplete="off" maxlength="1">
+                      <input type="text" class="form-control form-control-lg form-control-digit" id="digit2" autocomplete="off" maxlength="1">
+                      <input type="text" class="form-control form-control-lg form-control-digit" id="digit3" autocomplete="off" maxlength="1">
+                      <input type="text" class="form-control form-control-lg form-control-digit" id="digit4" autocomplete="off" maxlength="1">
+                    </div>                    
+                    <div class="form-group col-lg-6 col-md-6 col-sm-12 clear-left-controls">
+                        <button type="submit" class="btn btn-primary text-uppercase w-100 btn-lg">Verify</button>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <span class="reg-block__notes--bottom"><a href="#">Resend</a> OTP.<span>If you want to change your mobile number, <a href="#" class="link-grey">click here</a></span></span>
+                    </div>
+                  </form>
+              </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="dist/js/libs.js"></script>
+    <script type="text/javascript" src="dist/js/main.js"></script>
+  </body>
+</html>

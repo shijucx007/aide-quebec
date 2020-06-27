@@ -1,0 +1,59 @@
+body{
+  background-color: $default-bg-color;
+  font-weight: $default-font-weight;
+  font-style: normal;
+  color: $default-font-color;
+  font-size: $one-em;
+  font-family: $default-font-family;
+  line-height: $default-font-size * 1.4;
+  -webkit-text-size-adjust: none;
+    &.bg-white{
+      background-color: $color-white;
+    }
+}
+
+::-moz-selection { /* Code for Firefox */
+  // background: $primary-color;
+  // color: $color-white
+}
+
+::selection {
+  // background: $primary-color;
+  // color: $color-white
+}
+a{
+  color: $color-blue;
+  text-decoration: underline;
+  &:hover{
+    text-decoration: none;
+  }
+}
+img{
+  max-width: $fullsize;
+}
+
+.flex{
+  display: flex;
+}
+.clear {
+  clear: both; }
+  .clear-left {
+    clear: left; }
+
+.link-grey{
+  color: $default-font-color;
+}
+
+input, button, select, textarea{
+    outline: none!important;
+    box-shadow: none!important;
+}
+@include media-breakpoint-down(xxs) {
+  .col-xxs-12{
+    flex: $zero $zero $fullsize;
+    max-width: $fullsize;
+  }
+  .text-xxs-left{
+    text-align: left !important;
+  }
+}

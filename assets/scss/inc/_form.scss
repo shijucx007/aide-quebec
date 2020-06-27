@@ -1,0 +1,238 @@
+.clear-left-controls{
+    margin-right: $halfsize;
+    @include media-breakpoint-down(sm) {
+        margin-right: $zero;
+    }
+}
+
+.form{
+    &-check{
+        margin: $tenPix 0 $one-em * 1.875 0;
+    }
+    &-check-input{
+        margin-left: $zero;
+        opacity: $zero;
+        & ~ label{
+            font-size: $default-font-size * 0.9;
+            padding-left: $fivePix * 6;
+        }
+        &--blue{
+            & ~ label{
+                position: relative;
+                &:before{
+                    content: '';
+                    left: $zero;
+                    height: $fivePix * 4;
+                    width: $fivePix * 4;
+                    border: $onePix solid #ced4da;
+                    top: $zero;
+                    position: absolute;
+                    @include borderradius($onePix*4)
+                }
+            }
+            &:checked + label{
+                &:before{
+                    background: rgba($color: $color-blue, $alpha: 0.9) url(../../images/tick.png) no-repeat center center;
+                    background-size: 65% auto;
+                    border-color: $color-blue;
+                }
+            }
+        }
+    }
+    &-extra{
+        position: relative;
+        margin-top: $one-em * 2.5;
+        padding-top: $one-em * 3.5;
+        @include media-breakpoint-down(xs) {
+            padding-top: $zero;
+        }
+        &:before{
+            background-color: $color-light-grey;
+            content: '';
+            width: calc(#{$fullsize} + #{$registration-box-padding} * 2);
+            position: absolute;
+            left: $zero;
+            top: $zero;
+            height: $onePix;
+            margin-left: -$registration-box-padding;
+            @include media-breakpoint-down(sm) {
+                margin-left: -$registration-box-padding * 0.75;
+                width: calc(#{$fullsize} + #{$registration-box-padding} * 1.5);
+            }
+            @include media-breakpoint-down(xs) {
+                display: none;
+            }
+        }
+    }
+    &-group{
+        label{
+           margin-bottom: $one-em * 0.25; 
+           @include media-breakpoint-between(xs, sm) {
+            font-size: $default-font-size * 0.85;
+           }
+           @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 0.75;
+           }
+           strong{
+               font-weight: $font-weight-semi-bold;
+           }
+        }        
+        &--gps{            
+            position: relative;
+            .form-control{
+                padding-right: $one-em * 2.5;
+            }
+            &:after{
+                background: transparent url(../../images/gps.png) calc(#{$fullsize} -  #{$one-em}) calc(#{$fullsize} -  #{$one-em} * 0.25) no-repeat;   
+                content: '';            
+                position: absolute;
+                bottom: $one-em * 0.5;
+                right: $one-em * 0.5;
+                padding-right: $one-em * 3;
+                height: $fullsize * 0.5;
+            }
+        }
+    }
+    &-control{
+        &-lg{
+            font-size: $default-font-size;
+            height: calc(#{$one-em} * 3);
+            @include media-breakpoint-down(xs) {
+                font-size: $default-font-size * 0.85;
+            }
+        }
+    }
+    
+    &-control-digit{
+        border-width: $zero;
+        border-bottom-width: $onePix;
+        width: calc( #{$twentyFivePercent} * 1.15 - #{$fivePix} * 3 );
+        margin-right: $fivePix * 3;
+        margin-bottom: $one-em * 2;
+        text-align: center;
+        font-size: $default-font-size * 1.8;
+        @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 1.2;
+        }
+        @include borderradius($zero);
+        &:last-child{
+            margin-right: $zero;
+        }
+        &:focus, &:visited{
+            outline: none;
+            box-shadow:none;
+        }
+    }
+}
+textarea{
+    &.form-control{
+        height: calc(#{$one-em} * 8);
+        resize: none; 
+    }
+}
+
+.btn{
+    &-primary{
+        background-color: $color-blue;
+        border-color: $color-blue;
+        font-size: $default-font-size * 1.12;    
+        position: relative;  
+        box-shadow: none!important; 
+        padding: $one-em * 0.6 $one-em;
+        @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 0.85;
+            padding: $one-em * 1.15 $one-em;
+        }
+    }
+    &-extra{
+        font-size: $default-font-size;
+        margin-bottom: $one-em * 1.75;
+        padding: $one-em * 0.7 $one-em * 3;
+        text-decoration: none;
+        &:focus, &:active{
+            box-shadow: none;
+        }
+        &:before{
+            content: '';
+            height: $one-em * 1.5;
+            width: $one-em * 1.5;
+            position: absolute;
+            background-repeat: no-repeat;
+            left: $one-em * 0.6;
+        }
+    }    
+    
+    &-google, &-fb{
+        white-space: nowrap;
+        &:before{
+            background-size: $fullsize auto;
+        }
+        @include media-breakpoint-down(md) {
+            width: $fullsize;
+            font-size: $default-font-size * 0.9;
+        }
+        @include media-breakpoint-between(sm, md) {
+           font-size: $default-font-size ;
+           left: $zero;
+        }
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.85;
+        }
+        @include media-breakpoint-between(xs, sm) {
+            width: $fullsize;
+            font-size: $default-font-size * 0.8;
+            padding: $one-em * 1.15 $one-em * 0.55;
+            padding-left: $one-em * 3;
+        }  
+        @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 0.8;
+            padding: $one-em * 1.2 $one-em * 0.55;
+            padding-left: $one-em * 3!important;
+        }      
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.8;
+        }
+        @include media-breakpoint-between(xxs, xs) {
+            font-size: $default-font-size * 0.65;
+        }
+        @include media-breakpoint-down(xxs) {
+            font-size: $default-font-size * 0.8;
+            padding: $one-em * 0.9 $one-em * 0.55;
+        }
+       
+    }
+    &-google{
+        background-color: $color-light-blue;
+        border-color: $color-light-blue;
+        @extend .btn-extra;
+        &:before{
+            background-image: url(../../images/google-icon.png);            
+        }
+        &:hover{
+            background-color: $color-google-hover;
+            border-color: $color-google-hover;
+        } 
+        @include media-breakpoint-between(xxs, xs) {
+            margin-bottom: $one-em ;
+        }       
+    }
+    &-fb{
+        background-color: $color-fb-blue;
+        border-color: $color-fb-blue;
+        &:before{
+            background-image: url(../../images/fb-icon.png);            
+        }
+        @extend .btn-extra;
+        &:hover{
+            background-color: $color-fb-hover;
+            border-color: $color-google-hover;
+        }
+        //left: calc(-#{$tenPix} + #{$onePix} * 2);
+        @include media-breakpoint-down(sm) {
+           left: $zero;
+        }            
+        @include media-breakpoint-down(xxs) {
+            margin-bottom: $one-em * 0.9;
+        }
+    }
+}

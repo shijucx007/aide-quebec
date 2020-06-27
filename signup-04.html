@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+    <html class="no-icon-fonts" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content= "width=device-width, initial-scale=1.0"> 
+    <title>Aide Québec</title>
+    <link rel="stylesheet" type="text/css" href="dist/css/main.css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  </head>
+  <body>    
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+              <div class="reg-block" id="registerBlock">
+                  <a href="#"><img src="img/logo-blue.png" alt="" /></a>
+                  <h2 class="reg-block__heading">Other Informations</h2>
+                  <h5 class="reg-block__sub-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5>               
+                  <form class="row">
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <label><strong>Upload Images</strong></label>
+                        <ul class="upload-list">
+                            <li class="upload-list__item">
+                                <div class="upload-list__tile upload-list__tile--uploader" style="display: none;">
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" class="upload-list__button" id="uploadPic" />
+                                    <span class="upload-list__fake-circle"></span>
+                                </div>
+                                <div class="upload-list__tile upload-list__tile--profile">
+                                    <img src="img/samples/user-1.jpeg" alt="user name" />
+                                    <span class="upload-list__button-group">
+                                        <a class="upload-list__button-del" href="#"></a>
+                                        <a class="upload-list__button-ok" href="#"></a>
+                                    </span>
+                                </div>
+                                <label class="upload-list__label text-xs-left text-sm-left text-xxs-left">Upload profile image</label>
+                            </li>
+                            <li class="upload-list__item">
+                                <div class="upload-list__tile upload-list__tile--uploader">
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" class="upload-list__button" id="uploadID" />
+                                    <span class="upload-list__fake-circle"></span>
+                                </div>
+                                <div class="upload-list__tile upload-list__tile--profile" style="display: none;">
+                                    <img src="img/samples/user-1.jpeg" alt="user name" />
+                                    <span class="upload-list__button-group">
+                                        <a class="upload-list__button-del" href="#"></a>
+                                        <a class="upload-list__button-ok" href="#"></a>
+                                    </span>
+                                </div>
+                                <label class="upload-list__label text-xs-left text-sm-left text-xxs-left">Upload valid id proof</label>   
+                            </li>
+                            <li class="upload-list__item">
+                                <div class="upload-list__tile upload-list__tile--uploader">
+                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" class="upload-list__button" id="uploadSelfie" />
+                                    <span class="upload-list__fake-circle"></span>
+                                </div>
+                                <div class="upload-list__tile upload-list__tile--profile" style="display: none;">
+                                    <img src="img/samples/user-1.jpeg" alt="user name" />
+                                    <span class="upload-list__button-group">
+                                        <a class="upload-list__button-del" href="#"></a>
+                                        <a class="upload-list__button-ok" href="#"></a>
+                                    </span>
+                                </div>
+                                <label class="upload-list__label text-xs-left text-sm-left text-xxs-left">Upload selfie with id proof</label>
+
+                            </li>
+                        </ul>
+                    </div>  
+                    <div class="form-group form-group--gps col-lg-12 col-md-12 col-sm-12">
+                        <label for="location">Choose Location</label>
+                        <input type="text" class="form-control form-control-lg" id="location">
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <div class="map-container">
+                            <img src="img/samples/map.jpg" alt="map"/>
+                        </div>                        
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                        <label for="servicetype">Fee Type</label>
+                        <select class="form-control form-control-lg" id="servicetype">
+                          <option>Choose your Service</option>
+                          <option value="type1">Service Type one</option>
+                          <option value="type2">Service Type two</option>
+                          <option value="type3">Service Type three</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-lg-12 col-md-12 col-sm-12 clear-left-controls">
+                        <label for="userdesc">Zip Code</label>
+                        <textarea class="form-control form-control-lg" id="userdesc"></textarea>
+                      </div>
+                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                      <label for="feetype">Fee Type</label>
+                      <select class="form-control form-control-lg" id="feetype">
+                        <option>Choose your type</option>
+                        <option value="type1">Type one</option>
+                        <option value="type2">Type two</option>
+                        <option value="type3">Type three</option>
+                      </select>
+                    </div>
+                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                      <label for="feeamount">Fee Amount</label>
+                      <input type="text" class="form-control form-control-lg" id="feeamount">
+                    </div>  
+                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                        <button type="submit" class="btn btn-primary text-uppercase w-100 btn-lg">submit</button>
+                    </div>
+                  </form>
+              </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="dist/js/libs.js"></script>
+    <script type="text/javascript" src="dist/js/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,105 @@
+@mixin placeholder-color($color) {
+  &::-webkit-input-placeholder { /* WebKit browsers */
+    color: $color;
+  }
+  &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $color;
+  }
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $color;
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $color;
+  }
+}
+
+%clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+%heading_1{
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+%animation{
+  transform-style: preserve-3d;
+  transition: transform 500ms ease 0s;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  -moz-transform-style: preserve-3d;
+  -moz-transition: transform 500ms ease 0s;
+  -moz-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: transform 500ms ease 0s;
+  -webkit-transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin float-left {
+  float: left !important;
+}
+@mixin float-right {
+  float: right !important;
+}
+@mixin float-none {
+  float: none !important;
+}
+
+@mixin border-box {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+    -o-transform: $transforms;
+   -ms-transform: $transforms;
+-webkit-transform: $transforms;
+       transform: $transforms;
+}
+
+@mixin translate ($x, $y) {
+  @include transform(translate($x, $y));
+}
+
+@mixin transition($transition) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin rotate($rotate) {
+  transform: rotate($rotate);
+  -moz-transform: rotate($rotate);
+  -webkit-transform: rotate($rotate);
+  -o-transform: rotate($rotate);
+}
+
+@mixin borderradius($borderradius) {
+  -moz-border-radius:    $borderradius;
+  -o-border-radius:      $borderradius;
+  -webkit-border-radius: $borderradius;
+  border-radius:         $borderradius;
+}
+
+@mixin box-shadow($x-axis: 0, $y-axis: 1px, $blur: 2px, $color: $default) {
+  box-shadow: $x-axis $y-axis $blur $color;
+}
