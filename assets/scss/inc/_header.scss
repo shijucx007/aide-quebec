@@ -1,0 +1,214 @@
+.header-dashboard{
+    background-color: $color-white;
+    border: $onePix solid $border-color-grey;
+    padding: $header-padding 0;
+    @include box-shadow($zero, $onePix * 2, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.1)); 
+}
+
+header{   
+
+    @include media-breakpoint-down(sm) {
+        .profile-box{
+            border: $onePix solid $color-white;
+            height: $tenPix * 4;
+            overflow: hidden;
+            width: $tenPix * 4;
+            @include borderradius($halfsize);
+        }
+        .mobile-nav{
+            text-indent: -$tenPix * 9999;
+            outline: none;
+            border-top: $onePix*2 solid $color-dark;
+            border-bottom: $onePix*2 solid $color-dark;
+            position: relative;
+            height: $fivePix * 3;
+            width: $fivePix * 3;
+            margin-right: $fivePix * 4;
+            align-items: center;
+            overflow: hidden;
+            &:before{
+                background-color: $color-dark;
+                position: absolute;
+                left: $zero;
+                content: '';
+                height: $onePix*2;
+                width: $tenPix;
+                top: calc(#{$halfsize} - #{$onePix});
+            }
+            &:hover{
+                border-color: $color-blue;
+                &:before{
+                    background-color: $color-blue;
+                }
+            }
+        }
+    }
+
+.navbar{
+    align-items: center;
+    &-nav{
+        margin-left: auto;
+        order: 2;
+        align-items: center;
+    }
+    &-brand{
+        @include media-breakpoint-down(sm) {
+            max-width: 32px;
+        }
+    }
+    .dropdown{
+        &-toggle{
+            padding: $zero;
+            padding-right: $one-em * 2;
+            margin-left: (($tenPix * 2)-2);
+            font-size: $default-font-size * 0.875;
+            font-weight: $font-weight-semi-bold;  
+            margin-top: -$onePix; 
+            color: $color-dark;
+            @include media-breakpoint-down(md) {
+                font-size: $default-font-size * 0.8;
+            }  
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size * 0.7;
+                margin-top: $zero;
+                margin-left: $tenPix;
+            } 
+            @include media-breakpoint-down(xs) {
+                padding-right: $zero;
+            } 
+            &:before, &:after{
+                background-color: $color-dark;
+                border-width: $zero;
+                height: $onePix * 2;
+                width: $tenPix - 2;
+                position: absolute;
+                right: $tenPix;
+                top: $halfsize; 
+                content: '';
+                margin: (-$onePix * 2) (-$onePix * 2) $zero $zero;
+                @include media-breakpoint-down(sm) {
+                    height: $onePix;
+                    width: $fivePix;
+                }
+                @include media-breakpoint-down(xs) {
+                    display: none;
+                } 
+            }
+            &:before{
+                @include rotate(-45deg);
+            }
+            &:after{
+                @include rotate(45deg);
+                right: $fivePix * 3;
+                @include media-breakpoint-down(sm) {
+                    right: (($fivePix * 3)-2);
+                }
+            }     
+        }
+        &-menu{
+            left: auto;
+            right: $zero;
+            text-transform: uppercase;
+            font-size: $default-font-size * 0.8;  
+            top: $tenPix * 4.6;
+            margin-top: (($tenPix * 2)-2);
+            &:before{
+                content: '';
+                background: transparent url(../../images/popup-arrow-pointer.png);
+                height: $tenPix;
+                width: calc(#{$tenPix} * 2 - #{$onePix} * 2);
+                position: absolute;
+                right: $tenPix;
+                top: -$tenPix;
+            }
+            @include media-breakpoint-down(md) {
+                font-size: $default-font-size * 0.75;
+            }  
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size * 0.6;
+                top: $tenPix * 3;
+            } 
+            @include media-breakpoint-down(xs) {
+                font-size: $default-font-size * 0.6;
+                top: $fullsize;
+            }          
+        }
+        &-item{
+            text-decoration: none;
+            font-weight: $font-weight-semi-bold; 
+        }
+    }
+}
+
+.nav{
+    &-item{
+        font-size: $default-font-size * 0.875;
+        font-weight: $font-weight-semi-bold;  
+        @include media-breakpoint-down(md) {
+            font-size: $default-font-size * 0.8;
+        }  
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.7;
+        }    
+    }
+    &-link{
+        color: $color-dark;
+        text-decoration: none;
+        padding: $zero (($tenPix * 2)-2);
+        @include media-breakpoint-down(sm) {
+            padding: $zero $tenPix;
+        }
+    }
+    &-dropdown{
+        order: 3;
+        align-items: center;
+        @include media-breakpoint-down(xs) {
+            position: absolute;
+            right: $tenPix * 6;
+        }
+    }
+}
+
+.notification{
+    order: 4;
+    align-items: center;
+    position: relative;
+    margin-left: $one-em * 2.5;
+    padding-right: $one-em;
+    @include media-breakpoint-down(sm) {
+        margin-left: $one-em;        
+    } 
+    @include media-breakpoint-down(xs) {
+        position: absolute;
+        right: $tenPix;
+    }  
+    &__bell{  
+        @include media-breakpoint-down(sm) {
+            width: (($tenPix * 2)- 2);      
+        }      
+        &.ring{
+            -webkit-animation: ring 4s .7s ease-in-out infinite;
+            -webkit-transform-origin: 50% 4px;
+            -moz-animation: ring 4s .7s ease-in-out infinite;
+            -moz-transform-origin: 50% 4px;
+            animation: ring 4s .7s ease-in-out infinite;
+            transform-origin: 50% 4px;
+        }
+    }
+    &__count{
+        font-weight: $font-weight-semi-bold;
+        font-size: $one-em * 0.6875;
+        background-color: $color-yellow;
+        @include borderradius($onePix*18);
+        line-height: 1.2;
+        padding: $zero $onePix*3;
+        position: absolute;
+        right: $fivePix;
+        margin-top: -$fivePix;
+        @include media-breakpoint-down(sm) {
+            font-size: $one-em * 0.58;
+        }
+    }
+}
+
+}

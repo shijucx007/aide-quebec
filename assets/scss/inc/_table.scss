@@ -1,0 +1,204 @@
+.table{
+    font-size: $default-font-size * 0.93;
+    margin-bottom: $zero;
+    &-box{
+        border: $onePix solid $border-color-grey;
+        @include box-shadow($zero, $onePix * 2, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.1)); 
+        margin-bottom: $one-em;
+        @include media-breakpoint-down(xs) {
+            border-top-width: $zero;
+        }
+    }
+    thead{
+        th{
+            border-width: $zero;
+            font-weight: $font-weight-semi-bold;
+            padding: $one-em;
+            padding-right: $one-em * 0.5;
+            @include media-breakpoint-down(md) {
+                font-size:$default-font-size * 0.75;
+                line-height: 1.5;
+                padding-left: $one-em * 0.5;
+            }
+        }
+        @include media-breakpoint-down(xs) {
+            display: none
+        }
+    } 
+    tbody{
+        td{
+            font-weight: $font-weight-light;
+            background-color: $color-white;
+            padding: $one-em;
+            padding-right: $one-em * 0.5;
+            @include media-breakpoint-down(md) {
+                font-size:$default-font-size * 0.75;
+                line-height: 1.5;    
+                padding-left: $one-em * 0.5;            
+            }
+            @include media-breakpoint-down(xs) {
+                display: block;
+                padding-left: $fullsize * 0.5;
+                position: relative;
+                font-size:$default-font-size * 0.75;
+                &:before{
+                    display: block;
+                    left: $one-em * 0.5;
+                    content: attr(data-title) ':';
+                    position: absolute;
+                    font-weight: $font-weight-semi-bold;
+                }
+            }
+        }
+        tr{
+            &:hover{
+                td{
+                    background-color: $table-hove-color;
+                }
+            }
+            &:last-child{
+                td:first-child{
+                    border-bottom-left-radius: .25rem;
+                }
+                td:last-child{
+                    border-bottom-right-radius: .25rem;
+                }
+            }
+            @include media-breakpoint-down(xs) {
+                &:first-child{
+                    td{
+                        &:first-child{
+                            border-radius: $one-em * 0.25 $one-em * 0.25 $zero $zero;
+                        }
+                    }
+                }
+                &:nth-child(odd){
+                    td{
+                         background-color: $color-white;
+                    }                   
+                }
+                &:nth-child(even){
+                    td{
+                         background-color: $table-td-even-bg-color;
+                    }                   
+                }
+                &:nth-child(odd), &:nth-child(even){
+                    &:hover{
+                        td{
+                            background-color: $table-hove-color;
+                        }
+                    }
+                }
+                &:last-child{
+                    td{
+                        &:last-child{
+                            border-radius: $zero $zero $one-em * 0.25 $one-em * 0.25;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &--extra{
+        thead{
+            th{
+
+            }
+        }
+        tbody{
+            td{
+                cursor: pointer;
+                &:first-child{
+                    padding-left: $one-em * 1.5;
+                }
+                &:last-child:not(.status-info){
+                    padding-right: $tenPix * 6;
+                    position: relative;
+                    &:before, &:after{
+                        background-color: rgba($color: $color-dark, $alpha: 0.4);
+                        border-width: $zero;
+                        height: $onePix * 2;
+                        width: $tenPix - 2;
+                        position: absolute;
+                        right: $tenPix *3;
+                        top: $halfsize;                         
+                        content: '';
+                        @include transition(transform 0.25s ease 0.25s);
+                        @include media-breakpoint-down(sm) {
+                            height: $onePix;
+                            width: $fivePix;
+                        }
+                        @include media-breakpoint-down(xs) {
+                            display: none;
+                        } 
+                    }
+                    &:before{
+                        @include rotate(-45deg);
+                    }
+                    &:after{
+                        @include rotate(45deg);
+                        right: (($tenPix * 3) + 5);
+                        @include media-breakpoint-down(sm) {
+                            right: (($fivePix * 3)-2);
+                        }
+                    } 
+                }
+                &.status-info{
+                    cursor: default;
+                    height: $tenPix * 10;
+                    position: relative;
+                    background-color: $table-td-extra-bg-color !important;
+                    border-top-width: $zero; 
+                    padding-top: $one-em * 1.5;
+                    padding-bottom: $one-em * 1.5;
+                    &.loading{
+                        &:before{
+                            content: '';
+                            border: $onePix * 4 solid #eee;
+                            border-radius: 50%;
+                            border-top: $onePix * 4 solid $color-blue;
+                            width: $tenPix * 3.2;
+                            height: $tenPix * 3.2;
+                            -webkit-animation: spin 2s linear infinite;
+                            animation: spin 2s linear infinite;
+                            position: absolute;
+                            left: calc(#{$halfsize} - #{$one-em});
+                            top: calc(#{$halfsize} - #{$one-em});
+                        }                        
+                    }
+                    h5{
+                        padding-bottom: 0.5em;
+                    }
+                    .btn{
+                        background-color: $color-white;
+                        border-color: #c7cad1;
+                        font-weight: $default-font-weight;
+                        font-size: $default-font-size * 0.93;
+                        padding: $one-em * 0.25 $one-em;
+                        margin-top: $one-em * 1.6;
+                        color: $default-font-color;
+                        &:hover{
+                            background-color: $color-blue;
+                            border-color: $color-blue;
+                            color: $color-white;
+                        }
+                    }
+                }
+            }
+            tr{
+                &.active{
+                    td{                        
+                        &:last-child:not(.status-info){
+                            &:before{
+                                @include rotate(45deg);
+                            }
+                            &:after{
+                                @include rotate(-45deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

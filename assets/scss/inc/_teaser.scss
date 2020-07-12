@@ -1,0 +1,271 @@
+.teaser-box{
+    display: flex;
+    flex-wrap: wrap;
+    &__tiles{
+       margin-right: $onePercent * 3;
+       margin-bottom: $one-em * 1.25;
+       flex: 1 0 22.75%;
+       @include media-breakpoint-down(md) {
+        flex: 1 0 calc( #{$halfsize} - (#{$tenPix} * 2)); 
+        margin-right: $tenPix * 2;
+        margin-bottom: $tenPix * 3;
+        }
+        &:nth-of-type(4){
+            margin-right: $zero;
+            @include media-breakpoint-down(md) {
+                margin-right: $tenPix * 2;
+            }
+        }
+        &:nth-of-type(2n){
+            @include media-breakpoint-down(md) {
+                margin-right: 0;
+            }
+        }
+       a, figure{
+            display: block;
+            text-decoration: none;
+       }
+       .figure-img{
+           max-width: auto;
+           height: $fullsize;
+           margin-bottom: $zero;
+       }
+    }
+    &__caption{
+        font-weight: $font-weight-semi-bold;
+        font-size: $default-font-size * 0.95;
+        color: $color-deep-grey;
+        margin-top: $one-em * 0.5;
+        @include media-breakpoint-down(md) {
+            font-size: $default-font-size * 0.815;
+        }
+    }
+    &__pic{
+        display: block;
+        position: relative;
+        overflow: hidden;
+        background-size: auto $fullsize;
+        background-position: center center;
+    }
+    .rounded {
+        border-radius: .2rem!important;
+    }
+}
+
+.btn-view-more{
+    background-color: $color-white;
+    color: #acacac;
+    text-decoration: none;
+    font-size: $default-font-size * 0.815;
+    border-width: $zero;
+    padding: $one-em $one-em * 1.5;
+    margin: $one-em * 2 $zero;
+    &:hover{
+        background-color: $color-blue;
+    }
+}
+
+.teaser-tile{
+    display: flex;
+    flex-wrap: wrap;
+    $colors: $dashboard-tile-cyan, $dashboard-tile-blue, $dashboard-tile-pink, $dashboard-tile-orange;
+    @for $i from 1 through length($colors) {
+        li:nth-child(#{length($colors)}n+#{$i}) {
+            background: nth($colors, $i)
+        }
+    }
+    &__icon{
+        align-items: center;
+        padding: $one-em * 0.65 $zero $one-em * 1.75;   
+        @media (min-width: 992px) and (max-width: 1199px){
+            padding: $one-em * 0.5 $zero;
+         }
+        @include media-breakpoint-down(xs) {
+            padding-bottom: $one-em;
+        }     
+        span{
+            background-color: $color-white;
+            display: inline-block;
+            height: $tenPix * 9;
+                width: $tenPix * 9;
+            @include media-breakpoint-down(xs) {
+                height: $tenPix * 6.4;
+                width: $tenPix * 6.4;
+            }
+            img{
+                margin-top: $tenPix * 2;
+                @include media-breakpoint-down(xs) {
+                    margin-top: $fivePix * 3;
+                    max-width: $halfsize;
+                }
+            }
+        }        
+    }
+    &__item{
+        margin-right: $onePercent * 2.2;
+        flex: 1 0 23.35%;        
+        padding: $one-em * 1.125;
+        color: $color-white;
+        @include media-breakpoint-down(md) {
+            flex: 1 0 calc( #{$halfsize} - #{$tenPix}); 
+            margin-right: $tenPix;
+            margin-bottom: $tenPix;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: $one-em;
+        }
+        &:nth-of-type(4){
+            margin-right: $zero;
+            @include media-breakpoint-down(md) {
+                margin-right: $tenPix;
+            }
+        }
+        &:nth-of-type(2n){
+            @include media-breakpoint-down(md) {
+                margin-right: 0;
+            }
+        }
+        &:nth-of-type(3), &:nth-of-type(4){
+            @include media-breakpoint-down(md) {
+                margin-bottom: $zero;
+            }
+        }
+     }
+     &__service-requests, &__service-status{
+         display: block;
+         @media (min-width: 992px) and (max-width: 1199px){
+            font-size: $default-font-size * 0.85;
+         }
+         @include media-breakpoint-down(md) {
+            font-size: $default-font-size * 0.95;
+         }
+         @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.85;
+         }
+         @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 0.75;
+            line-height: 1;
+         }
+     }
+     &__service-requests{
+         font-size: $default-font-size * 2.375;
+         font-weight: $font-weight-bold;
+         margin-bottom: $one-em * 0.25;
+         @media (min-width: 992px) and (max-width: 1199px){
+            font-size: $default-font-size * 1.75;
+         }
+         @include media-breakpoint-down(md) {
+            font-size: $default-font-size * 2.15;
+         }
+         @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 2.1;
+         }
+         @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 1.75;
+         }
+     }
+}   
+
+.teaser-list{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;     
+    @include box-shadow($zero, $onePix * 2, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.1)); 
+    $bg-colors: ("cyan",$dashboard-tile-cyan),("orange", $dashboard-tile-orange);
+    @each $color in $bg-colors {
+        &--#{nth($color,1)} {
+          background-color: nth($color,2);
+        }
+      }
+      &--cyan{
+        margin-right: $one-em * 1.3;   
+        @include media-breakpoint-down(lg) {
+            margin-right: $one-em;
+        }
+        @include media-breakpoint-down(md) {
+            margin-right: $zero;
+            margin-bottom: $one-em;
+        }
+      }
+      &__item{
+          border-bottom: $onePix solid rgba($color: $color-white, $alpha: 0.35);
+          padding: $one-em * 0.5 $one-em * 1.5;
+          color: $color-white;
+          display: flex;
+          justify-content: space-between;
+          &:first-child, &:last-child{
+              border-width: $zero;
+          }
+          &:last-child{
+            padding-bottom: $one-em * 1.5;
+            @include media-breakpoint-down(md) {
+
+            }
+          }
+      }
+      h3{
+          color: $color-white;
+          margin: $one-em * 0.75 $zero;
+          font-size: $default-font-size * 1.35;
+      }
+      &__icon{
+          order: 2;
+          align-items: center;
+          display: flex;
+          span{
+              background-color: $color-white;
+              display: flex;
+              @include borderradius($halfsize);
+              height: $tenPix * 5;
+              width: $tenPix * 5;
+              align-items: center;
+              justify-content: center;
+              @include media-breakpoint-down(sm) {
+                height: $tenPix * 4;
+                width: $tenPix * 4;
+              }
+              img{
+                  max-width: $fullsize * .6;
+              }              
+          }
+      }
+      &__service-box{
+        order: 1;
+        align-items: center;
+      }
+      &__service-requests, &__service-status{
+        display: block;
+        @include media-breakpoint-down(md) {
+            font-size: $default-font-size * 0.8;
+         }
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.85;
+         }
+         @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 0.75;
+            line-height: 1;
+         }
+      }
+      &__service-requests{
+          font-size: $default-font-size * 2.37;
+          font-weight: $font-weight-bold;
+          padding: $one-em * 0.25 $zero; 
+          @include media-breakpoint-down(md) {
+            font-size: $default-font-size * 1.85;
+            padding-bottom: $one-em * 0.2; 
+         }
+          @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 2.1;
+            padding-bottom: $one-em * 0.2; 
+         }
+         @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 1.75;
+         }
+      }
+      &__service-requests{
+        @include media-breakpoint-down(sm) {
+            padding-bottom: $one-em * 0.2; 
+        }
+      }
+}

@@ -1,0 +1,51 @@
+body{
+    background-color: $default-bg-color;
+}
+
+.content-box{
+    padding: $one-em * 2.8 $zero;
+    min-height: $tenPix * 70;
+    @include media-breakpoint-down(sm) {
+        padding: $one-em * 1.8 $zero;
+    } 
+}
+@include media-breakpoint-down(xxs) {
+    .d-xxs-block{
+        display: block !important;
+    }
+    .d-xxs-none{
+        display: none !important;
+    }
+}
+
+.content{
+    padding-left: $one-em;  
+    padding-bottom: $one-em;
+    position: relative;
+    @include media-breakpoint-down(md) {
+        padding-left: $zero;
+    }
+    a{
+        text-decoration: none;
+    }
+    h1, h2, h3, h4, h5{
+        color: $color-deep-grey;
+        font-weight: $font-weight-semi-bold;    
+    }
+    h2{
+        font-size: $default-font-size * 1.87;  
+        margin-bottom: $one-em * 1.5;  
+        @include media-breakpoint-down(md) {
+            font-size: $default-font-size * 1.5; 
+        }
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 1.15; 
+            margin-bottom: $one-em * .5;  
+        }
+    }
+    h3{
+        font-size: $default-font-size * 1.125;            
+        margin-bottom: $one-em * 1.15;
+        margin-top: $one-em * 2.5;
+    }
+}

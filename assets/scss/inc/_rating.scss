@@ -1,0 +1,18 @@
+.rating-box{
+    &__rating{
+        color: $color-black;
+        font-weight: $font-weight-semi-bold;
+        font-size: $default-font-size * 1.2;
+        padding-right: $one-em * 0.15;
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size;
+            padding-right: $zero;
+        }
+    }
+    &__star{
+        padding-top: $one-em * 0.2;
+        @include media-breakpoint-down(sm) {
+            padding-top: $onePix * 3;
+        }
+    }
+}

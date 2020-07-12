@@ -1,0 +1,128 @@
+.dropdown-filter{
+    position: absolute;
+    top: $zero;
+    right: $zero;
+    .dropdown-menu{
+        &:before{
+            content: '';
+            background: transparent url(../../images/popup-arrow-pointer.png);
+            height: $tenPix;
+            width: calc(#{$tenPix} * 2 - #{$onePix} * 2);
+            position: absolute;
+            right: $tenPix;
+            top: -$tenPix;
+        }
+    }
+    &__btn{
+        background-color: $color-white;
+        background-image: url(../../images/cal-icon.png);
+        background-repeat: no-repeat;
+        background-position: $tenPix center;
+        border: $onePix solid $border-color-grey;
+        text-decoration: none;
+        font-weight: $font-weight-semi-bold;
+        font-size: $default-font-size * 0.81;
+        padding: $one-em * 0.85 $one-em * 3;
+        padding-right: $one-em * 2;
+        min-width: $tenPix * 18;
+        text-align: left;
+        @include box-shadow($zero, $zero, (($tenPix * 2)-2), #eee);        
+        &:focus{
+            @include box-shadow($zero, $zero, (($tenPix * 2)-2), #eee);
+        }
+        &:before, &:after{
+            background-color: $dropdown-arrow-color;
+            border-width: $zero;
+            height: $onePix * 2;
+            width: $tenPix - 2;
+            position: absolute;
+            right: $tenPix;
+            top: $halfsize;
+            content: '';
+        }
+        &:before{
+            @include rotate(-45deg);
+        }
+        &:after{
+            @include rotate(45deg);
+            right: 15px;
+        }
+        @include media-breakpoint-down(sm) {
+            border-width: $zero;
+            @include box-shadow($zero, $zero, (($tenPix * 2)-2),transparent);   
+            background-color: transparent;
+            padding: $zero $one-em * 1.5;
+            min-width: $tenPix * 8.4;
+            background-size: $onePix * 12;
+            background-position: left center;
+            &:before, &:after{
+                right: $zero;
+                height: $onePix;
+                width: $tenPix - 4;
+            }
+            &:after{
+                right: $onePix*4;
+            }
+        }
+    }
+    .dropdown{
+        &-menu{
+            border: $onePix solid $border-color-grey;
+            @include box-shadow($zero, $onePix * 2, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.1));  
+            padding: $one-em * 1.375 $one-em * 1.875;
+            &.show{
+                left: auto!important;
+                right: -$onePix;
+                top:  $fullsize !important;
+                min-width: $tenPix * 43;
+                width: $fullsize;
+                transform: translate($zero, $zero)!important;
+                margin-top: $onePix * 8;
+                @include media-breakpoint-down(sm) {
+                    min-width: $tenPix * 30;
+                    padding: $fivePix * 3;
+                }
+            }
+        }
+        &-item{
+            padding: $one-em * 0.75 $one-em * 0.25;
+            border-bottom: $onePix solid rgba($color: $border-color-grey, $alpha: 0.7);
+            opacity: 0.7;
+            &:last-of-type{
+                border-width: 0;
+            }
+            &:focus{
+                background-color: transparent;
+                color: $color-blue;
+            }
+            &--active{
+                opacity: 1;
+            }
+        }
+    }
+    .form-control{
+        background: $color-white url(../../images/cal-icon.png) no-repeat  $tenPix $halfsize;
+        height: calc(2em + .75rem + 2px);
+        padding-left: $one-em * 2;
+        opacity: 0.6;
+        &:focus{
+            opacity: 1;
+        }
+    }
+    .spacer{
+        width: $one-em * 2.5;
+        position: relative;
+        &:after{
+            background-color: $default-font-color;
+            display: block;
+            position: absolute;
+            content: "";
+            height: $onePix * 2;
+            width: $tenPix - 2;
+            bottom: calc(#{$tenPix} * 2 + #{$onePix} * 2);
+            left: $halfsize;
+            margin-left: calc(-#{$onePix} * 4);
+            opacity: 0.7;
+        }
+    }
+}

@@ -43,6 +43,9 @@ img{
 .link-grey{
   color: $default-font-color;
 }
+.top-border-white{
+  border-top: $onePix solid rgba($color: $color-white, $alpha: 0.1);
+}
 
 input, button, select, textarea{
     outline: none!important;

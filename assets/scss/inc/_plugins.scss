@@ -1,0 +1,111 @@
+.pika-single{
+    font-family: $default-font-family !important;
+    color: $default-font-color !important;
+}
+.btn-hover{
+    background-color: $color-sky-blue !important;
+    color: $color-blue !important;
+}    
+.pika-button{
+    &:hover{
+        @extend .btn-hover;
+        @include borderradius($zero !important);
+    }
+}
+.is-today .pika-button{
+    color: $color-blue !important;
+    &:hover{
+        @extend .btn-hover;
+        @include borderradius($zero !important);
+    }
+}
+.is-selected .pika-button{
+    background-color: $color-blue !important;
+    color: $color-white !important;
+    @include borderradius($zero !important);
+    &:hover{
+        background-color: $color-blue !important;
+        color: $color-white !important;
+        @include borderradius($zero !important);
+    }
+}
+
+
+.modal{
+    &-backdrop{
+        &.show{
+            opacity: 0.8;
+        }
+    }
+    &-dialog{
+        margin: $one-em * 5 auto;
+        @include media-breakpoint-down(sm) {
+            max-width: $tenPercent * 8.4;
+            margin-left: $onePercent * 8;
+        }
+    }
+    &-close{
+        display: block;
+        height: $tenPix * 4;
+        width: $tenPix * 3.6;
+        position: fixed;
+        top: $tenPix;
+        right: $tenPix * 2;
+        margin-left: $tenPix;
+        &:before, &:after{
+            background-color: $color-white;
+            content: '';
+            position: absolute;
+            height: $onePix;
+            width: $tenPix * 2;
+            top: $halfsize;
+            margin-left: $onePix * 8;
+        }
+        &:before{
+            @include rotate(-45deg);
+        }
+        &:after{
+            @include rotate(45deg);
+        } 
+    }
+    &-header, &-footer{
+        border-width: $zero;
+        padding: $one-em * 1.5;
+    }
+    &-header{
+        padding-bottom: $one-em;
+    }
+    &-body{
+        padding: $zero $one-em * 1.5;
+    }
+    &-title{
+        color: $color-black;
+        font-weight: $font-weight-semi-bold;
+        font-size: $default-font-size * 1.375;
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 1.15;
+        }
+    }
+    label{
+        font-size: $default-font-size;
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * .85;
+        }
+    }
+    textarea{
+        @include borderradius($onePix * 3 !important);
+    }
+    .btn{
+        background-color: $color-blue;
+        border-color: $color-blue;
+        font-size: $default-font-size * .9;
+        @include borderradius($onePix * 3 !important);
+        min-width: $tenPix * 10;
+        padding: $one-em * 0.5 $one-em;
+        &:hover{
+            background-color: $color-blue-hover;
+            border-color: $color-blue-hover;
+        }
+    }
+}
+
