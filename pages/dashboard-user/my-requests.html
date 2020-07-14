@@ -86,7 +86,7 @@
                     <section class="content w-100">
                       <h2>My Requests</h2>
                       <div class="table-box rounded">
-                        <table class="table table--extra" id="customerRequestStatusTable">
+                        <table class="table table--extra table-with-arrow-btn" id="statusRequestTable">
                           <thead>
                             <tr>
                               <th scope="col">Service Type</th>
@@ -97,19 +97,13 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="row_requests active" data-requestid="re1">
+                            <tr class="row_requests" data-requestid="re1">
                               <td data-title="Service Type">Car Wash</td>
                               <td data-title="Location">British Columbia</td>
                               <td data-title="Request Date & Time">24 May 2020, 9:17am</td>
                               <td data-title="Provider Name">Michael Smith</td>
                               <td data-title="Current Status">Open</td>
                             </tr>
-                            <tr class="row_statusinfo"><td class="status-info" colspan="5">
-                                <h5>Description</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam,</p>
-                                <a href="#" class="btn btn-primary">Cancel Request</a>
-                            </td></tr>
                             <tr class="row_requests" data-requestid="re2">
                               <td data-title="Service Type">Painting</td>
                               <td data-title="Location">Alberta</td>
@@ -225,17 +219,28 @@
 
     <script type="text/javascript" src="../../dist/js/libs.js"></script>
     <script type="text/javascript" src="../../dist/js/dashboard.js"></script>
+    
     <script type="text/javascript">
        $(document).ready(function(){
-            $('#customerRequestStatusTable tr.row_requests').on('click', function(){
+            $(document).on('click', '#statusRequestTable tr.row_requests', function(){
                 var $this = $(this), rowID = $this.data('requestid'), tdLength = $this.find('td').length,
-                $statusInfoRow = '<tr class="row_statusinfo"><td class="status-info loading" colspan="'+tdLength+'"></td></tr>';
+                $statusInfoRow = '<tr id="row_statusinfo" class="row_statusinfo"><td class="status-info loading" colspan="'+tdLength+'"><div class="status-info__content"></div></td></tr>';
                 if($this.hasClass('active')){
                     $this.removeClass('active');
-                    $this.next('tr.row_statusinfo').remove();
+                    $this.next('tr#row_statusinfo').remove();
                 }else{
                     $this.addClass('active');
                     $this.after($statusInfoRow);
+                    $.ajax({
+                        url: "ajax-content.html",
+                        data: { rowid: rowID },
+                        dataType: "html",
+                        beforeSend: function( xhr ) {
+                         
+                        }
+                    }).done(function( data ) {
+                         $(document).find('tr#row_statusinfo > td').removeClass('loading').find('.status-info__content').html(data);
+                    });
                 }
             });
        });

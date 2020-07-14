@@ -28,6 +28,7 @@ let components = {
         this.counter();   
         this.mobileNav(); 
         this.starRating();
+        this.addArrowButton();
     },
     resize: function(){
         components.squareContainer();
@@ -47,6 +48,12 @@ let components = {
                     halfStar: true
                   });
             });
+        }
+    },
+    addArrowButton: function(){
+        let tableWithArrowBtn = $('.table-with-arrow-btn');
+        if(tableWithArrowBtn.length){
+            tableWithArrowBtn.find('tbody td:last-child').append('<span class="status-arrow-toggle"></span>');
         }
     },
     counter: function(){

@@ -102,55 +102,78 @@
     &--extra{
         thead{
             th{
-
+                &:first-child{
+                    @include media-breakpoint-up(md) {
+                        padding-left: $one-em * 1.5;
+                    }
+                    @include media-breakpoint-down(md) {
+                        padding-left: $one-em;
+                    }
+                }
             }
         }
         tbody{
             td{
                 cursor: pointer;
                 &:first-child{
-                    padding-left: $one-em * 1.5;
+                    @include media-breakpoint-up(sm) {
+                        padding-left: $one-em;
+                    }
+                    @include media-breakpoint-up(md) {
+                        padding-left: $one-em * 1.5;
+                    }                    
                 }
                 &:last-child:not(.status-info){
-                    padding-right: $tenPix * 6;
+                    padding-right: $tenPix * 6;                    
+                    @include media-breakpoint-down(md) {
+                        padding-right: $tenPix * 4;
+                    }
                     position: relative;
-                    &:before, &:after{
-                        background-color: rgba($color: $color-dark, $alpha: 0.4);
-                        border-width: $zero;
-                        height: $onePix * 2;
-                        width: $tenPix - 2;
+                    .status-arrow-toggle{
                         position: absolute;
                         right: $tenPix *3;
-                        top: $halfsize;                         
-                        content: '';
-                        @include transition(transform 0.25s ease 0.25s);
-                        @include media-breakpoint-down(sm) {
-                            height: $onePix;
-                            width: $fivePix;
+                        top: $halfsize;   
+                        height: $tenPix - 2;
+                        width: $tenPix - 2;
+                        display: block;
+                        @include media-breakpoint-down(md) {
+                            right: $one-em;
                         }
-                        @include media-breakpoint-down(xs) {
-                            display: none;
-                        } 
+                        &:before, &:after{
+                            background-color: rgba($color: $color-dark, $alpha: 0.4);
+                            border-width: $zero;
+                            height: $onePix * 2;
+                            width: $tenPix - 2;
+                            position: absolute;                                              
+                            content: '';
+                            @include transition(transform 0.25s ease 0.25s);
+                            @include media-breakpoint-down(md) {
+                                width: $fivePix + 1;
+                            }                            
+                            }
+                            &:before{
+                                @include rotate(-45deg);
+                            }
+                            &:after{
+                                @include rotate(45deg);
+                                right: $fivePix;
+                                @include media-breakpoint-down(sm) {
+                                    right: $fivePix -2;
+                                }
+                            } 
                     }
-                    &:before{
-                        @include rotate(-45deg);
-                    }
-                    &:after{
-                        @include rotate(45deg);
-                        right: (($tenPix * 3) + 5);
-                        @include media-breakpoint-down(sm) {
-                            right: (($fivePix * 3)-2);
-                        }
-                    } 
+                    
                 }
                 &.status-info{
-                    cursor: default;
-                    height: $tenPix * 10;
+                    cursor: default;                    
                     position: relative;
                     background-color: $table-td-extra-bg-color !important;
                     border-top-width: $zero; 
                     padding-top: $one-em * 1.5;
                     padding-bottom: $one-em * 1.5;
+                    @include media-breakpoint-down(sm) {
+                        padding-left: $one-em * 0.5 !important;
+                    }
                     &.loading{
                         &:before{
                             content: '';
@@ -164,11 +187,20 @@
                             position: absolute;
                             left: calc(#{$halfsize} - #{$one-em});
                             top: calc(#{$halfsize} - #{$one-em});
+                            margin: (-$onePix * 4) $zero $zero (-$onePix * 4);
                         }                        
+                    }
+                    &__content{
+                        min-height: $tenPix * 10;
                     }
                     h5{
                         padding-bottom: 0.5em;
                     }
+                    @include media-breakpoint-down(xs) {
+                        p{
+                            font-size: $default-font-size * 0.75;
+                        }
+                    } 
                     .btn{
                         background-color: $color-white;
                         border-color: #c7cad1;
@@ -177,6 +209,10 @@
                         padding: $one-em * 0.25 $one-em;
                         margin-top: $one-em * 1.6;
                         color: $default-font-color;
+                        @include media-breakpoint-down(xs) {
+                            font-size: $default-font-size * 0.8;
+                            padding: $one-em * 0.5 $one-em;
+                        }
                         &:hover{
                             background-color: $color-blue;
                             border-color: $color-blue;
@@ -189,11 +225,13 @@
                 &.active{
                     td{                        
                         &:last-child:not(.status-info){
-                            &:before{
-                                @include rotate(45deg);
-                            }
-                            &:after{
-                                @include rotate(-45deg);
+                            .status-arrow-toggle{
+                                &:before{
+                                    @include rotate(45deg);
+                                }
+                                &:after{
+                                    @include rotate(-45deg);
+                                }
                             }
                         }
                     }
