@@ -13,14 +13,27 @@ body{
 }
 
 ::-moz-selection { /* Code for Firefox */
-  // background: $primary-color;
-  // color: $color-white
+  background: $color-blue;
+  color: $color-white
 }
 
 ::selection {
-  // background: $primary-color;
-  // color: $color-white
+  background: $color-blue;
+  color: $color-white
 }
+
+::-webkit-input-placeholder {
+  color: $default-font-color;
+}
+
+:-ms-input-placeholder { 
+  color: $default-font-color;
+}
+
+::placeholder {
+  color: $default-font-color;
+}
+
 a{
   color: $color-blue;
   text-decoration: underline;

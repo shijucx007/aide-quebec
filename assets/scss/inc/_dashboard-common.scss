@@ -459,3 +459,96 @@ p{
         }
     }
 }
+
+
+.search-box{
+    &__items{
+        flex-wrap: wrap;
+    }
+    .form-group{
+        margin-right: $fivePix;
+        width: calc((#{$tenPercent} * 3.3) - (#{$tenPix} * 1.9));
+        &:nth-of-type(4){
+            width: $tenPix * 4.2;
+            @include media-breakpoint-down(md) {
+                width: calc((#{$tenPercent} * 5) - (#{$onePix} * 3));
+            }
+        }
+        @include media-breakpoint-down(md) {
+            &:nth-of-type(2n){
+                margin-right: -$onePix;
+            }
+        }
+        @include media-breakpoint-down(lg) {
+            width: calc((#{$tenPercent} * 5) - #{$fivePix});
+        }
+        @include media-breakpoint-down(xs) {
+            width: $fullsize !important;
+            margin-right: $zero !important;
+        }
+    }
+    .form-control{
+        font-size: $default-font-size * 0.875;     
+        &.date-field{
+            background: $color-white url(../../images/cal-icon.png) no-repeat calc(#{$fullsize} - (#{$fivePix} * 2)) center;
+            background-size: $tenPix + 2;
+        }          
+    }
+    .flex-reverse{
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .search-box__button{
+        &--white{
+            background: $color-white url(../../images/search-icon.png) no-repeat center $tenPix * 1.2;
+            height: $tenPix * 4.2;
+            width: $tenPix * 4.2;
+            color: $color-blue;
+            text-transform: uppercase;
+            font-size: $default-font-size * 0.875; 
+            line-height: $tenPix * 2.5;
+            max-height: $tenPix * 4.2;
+            @include media-breakpoint-down(md) {
+                width: $fullsize;
+                background-image: none;
+                font-size:$default-font-size * 0.8;
+            }
+            @include media-breakpoint-down(xs) {
+                line-height: 1;
+            }
+            &:hover{
+                background-position: center calc(100% - 10px);
+                background-color: $color-blue;
+                color: $color-white;
+            }
+        }
+        &--blue{
+            font-size: $default-font-size * 0.875; 
+            text-transform: uppercase;  
+            height: $tenPix * 4.2;
+            max-height: $tenPix * 4.2;
+            line-height: $tenPix * 2.5;
+            z-index: 9999;
+            @include media-breakpoint-down(md) {
+                font-size:$default-font-size * 0.7;
+                //line-height: $tenPix * 1.2;
+            }
+            @include media-breakpoint-down(sm) {
+                position: fixed;
+                bottom: $zero;
+                left: $zero;
+                width: $fullsize;
+                @include borderradius($zero !important);
+                font-size:$default-font-size * 0.8;
+                height: auto;
+                max-height: unset;
+                line-height: 1.2;
+            }
+            &:hover{
+                background-color: $color-blue-hover;
+                border-color: $color-blue-hover;
+                color: $color-white;
+            }
+        }
+    }
+}

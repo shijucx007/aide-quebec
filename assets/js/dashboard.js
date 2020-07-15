@@ -96,6 +96,14 @@ let components = {
         gsap.to('#sidebar', 1, {autoAlpha: 0}, 1);
     },
     datePicker: function(){
+        window.datePicker = new Pikaday({
+            field: document.getElementById('datePicker'),
+            format: 'D MMM YYYY',
+            onSelect: function() {
+                console.log(this.getMoment().format('Do MMMM YYYY'));
+            }
+        });
+
         window.startDate = new Pikaday({
             field: document.getElementById('startDate'),
             format: 'D MMM YYYY',
