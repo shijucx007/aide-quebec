@@ -531,7 +531,6 @@ p{
             z-index: 9999;
             @include media-breakpoint-down(md) {
                 font-size:$default-font-size * 0.7;
-                //line-height: $tenPix * 1.2;
             }
             @include media-breakpoint-down(sm) {
                 position: fixed;
