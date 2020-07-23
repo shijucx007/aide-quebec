@@ -7,6 +7,10 @@ p{
     font-weight: $font-weight-light;
 }
 
+.text-danger{
+  font-size: $default-font-size * 0.8125 !important;
+}
+
 .card-profile{
     background-color: $card-bg-color;
     border-color: $border-color-grey;

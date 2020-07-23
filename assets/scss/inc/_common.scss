@@ -60,6 +60,10 @@ img{
   border-top: $onePix solid rgba($color: $color-white, $alpha: 0.1);
 }
 
+.text-danger{
+  font-size: $default-font-size * 0.8125 !important;
+}
+
 input, button, select, textarea{
     outline: none!important;
     box-shadow: none!important;
@@ -73,3 +77,4 @@ input, button, select, textarea{
     text-align: left !important;
   }
 }
+
