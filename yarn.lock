@@ -3721,7 +3721,14 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jquery@^3.5.1:
+jquery.nicescroll@^3.7.6:
+  version "3.7.6"
+  resolved "https://registry.yarnpkg.com/jquery.nicescroll/-/jquery.nicescroll-3.7.6.tgz#afeff3e80658dabe4f78d2d2e84250060fea0852"
+  integrity sha1-r+/z6AZY2r5PeNLS6EJQBg/qCFI=
+  dependencies:
+    jquery ">=1.8.3"
+
+jquery@>=1.8.3, jquery@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==

@@ -109,3 +109,7 @@
     }
 }
 
+.nicescroll-cursors{
+    background-color: rgba($color: $color-dark, $alpha: 0.2)!important;
+    @include borderradius(0 !important);
+}

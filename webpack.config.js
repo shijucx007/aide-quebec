@@ -118,7 +118,7 @@ module.exports = {
       // This cleans the dist folder before each build, so that only used files will be available
       new CleanWebpackPlugin(['dist']),
       new BrowserSyncPlugin({
-            proxy: 'scx-ind.irpages2.equitystory/shiju/pages/dashboard-user/my-requests.html'
+            proxy: 'scx-ind.irpages2.equitystory/shiju/pages/dashboard-user/provider-detail.html'
       })
   ]
 };

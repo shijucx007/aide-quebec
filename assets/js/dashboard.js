@@ -6,7 +6,8 @@ import $ from "jquery";
 import '../../node_modules/bootstrap/js/dist/util';
 import '../../node_modules/bootstrap/js/dist/dropdown';
 import '../../node_modules/bootstrap/js/dist/modal';
-import '../../node_modules/@rateyo/jquery/lib/cjs/jquery.rateyo'
+import '../../node_modules/@rateyo/jquery/lib/cjs/jquery.rateyo';
+import '../../node_modules/jquery.nicescroll/dist/jquery.nicescroll';
 
 import {Utils, Resizer, Scroller} from "web-utility-js";
 
@@ -29,11 +30,18 @@ let components = {
         this.mobileNav(); 
         this.starRating();
         this.addArrowButton();
+        this.niceScroll();
     },
     resize: function(){
         components.squareContainer();
         components.initSidebar();
-        components.adjustCalendarPos();
+        components.adjustCalendarPos();        
+    },   
+    niceScroll: function(){
+        var nicescroll = $('[nicescroll]');
+        if(nicescroll.length){
+            nicescroll.niceScroll();
+        }
     },
     starRating: function(){
         let starrr = $('.rateYo');
