@@ -1247,3 +1247,81 @@ p{
     }
 }
 
+
+.payment-container{
+    @extend .drop-shadow;  
+    @extend .default-container;
+    @include borderradius($onePix * 5);
+    border: 1px solid rgba($color: $color-dark-grey, $alpha: 0.1);  
+    @include media-breakpoint-down(sm) {
+        padding: $one-em;
+    }
+}
+.payment-list{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: $one-em * 1.5;
+    @include media-breakpoint-down(md) {
+        display: block;
+    }
+    &__item{
+        width: $fullsize/2;
+        padding-right: $one-em * 1.35;
+        padding-left: $zero;
+        padding-bottom: $one-em;
+        @include media-breakpoint-down(md) {
+            padding-right: $zero !important;
+            padding-left: $zero !important;
+            width: $fullsize;
+        }
+        @include media-breakpoint-down(sm) {
+            padding-bottom: $zero;
+        }
+        &:nth-last-of-type(2n){
+            padding-right: $zero;
+            padding-left: $one-em * 1.35;
+        }
+        .form-group{
+            label{
+                opacity: 0.8;
+            }
+        }
+        .form-group-cvv{
+            width: $tenPix * 12 !important;
+            + .form-group{
+                width: calc( #{$fullsize} - (#{$tenPix} * 13)) !important;
+            }
+        }
+        .cvv{
+            background: transparent url(../../images/cvv.png) no-repeat $zero $fivePix;
+            color: #898b8e;
+            font-size: $default-font-size * 0.75;
+            line-height: 1;
+            padding: $one-em * 0.75 $zero $one-em * 0.75 $tenPix * 5;
+        }
+    }
+    .two-col{
+        display: flex;
+        flex-wrap: wrap;
+        .form-group{
+            width: $fullsize/2;
+            &:first-of-type{
+                padding-right: $fivePix;
+                padding-left: $zero;
+            }
+            &:last-of-type{
+                padding-right: $zero;
+                padding-left: $fivePix;
+            }
+            // @include media-breakpoint-down(md) {
+            //     &:first-of-type, &:last-of-type{
+            //         padding-right: $zero !important;
+            //         padding-left: $zero !important;
+            //     }
+            // }
+        }
+    }
+    .btn{
+        margin-top: $one-em * 1.2;
+    }
+}
