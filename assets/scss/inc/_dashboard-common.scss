@@ -15,6 +15,12 @@ p{
     @include box-shadow($zero, $zero, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.05));    
 }
 
+.default-container{
+    background-color: $color-white;
+    padding: $one-em * 4;
+    @include borderradius($onePix * 3);
+}
+
 .card-profile{
     background-color: $card-bg-color;
     border-color: $border-color-grey;
@@ -890,6 +896,225 @@ p{
                     color: $color-blue;
                 }
             }
+        }
+    }
+}
+
+.edit-profile{
+    @extend .drop-shadow;
+    @extend .default-container;
+    @include media-breakpoint-down(md) {
+        padding: $one-em;
+    }
+    &__title{
+        font-size: $default-font-size * 1.3;
+        @include media-breakpoint-down(md) {
+            font-size: $default-font-size;
+        }
+    }
+    .form-control{
+        @include media-breakpoint-down(sm) {
+            padding: $one-em * 1.65 $one-em;
+        }
+    }
+    .map-container{
+        @include media-breakpoint-down(md) {
+           min-height: $tenPix * 20;
+        }
+    }
+}
+
+.form-two-col{  
+    padding: $one-em * 2 0;
+    @include media-breakpoint-down(sm) {
+        padding: $one-em 0;
+    }
+    &__item{
+        width: $tenPercent * 8;
+        @include media-breakpoint-down(md) {
+            width: $fullsize;
+        }
+        .form-group{
+            display: flex;
+            @include media-breakpoint-down(sm) {
+                display: block;
+                margin-bottom: 0;
+            }
+        }
+        label{
+            width: $tenPercent * 4.5;
+            max-width: $tenPix * 15;
+            padding-top: $tenPix + 2;
+            @include media-breakpoint-down(md) {
+                max-width: $tenPix * 11.5;
+            }
+            @include media-breakpoint-down(sm) {
+                width: $fullsize;
+                max-width:  $fullsize;
+            }
+        }
+        .form-control{
+            width: $tenPercent * 5.5;
+            @include media-breakpoint-down(sm) {
+                width: $fullsize;
+            }
+        }
+        &:last-child{
+            width: $fullsize;
+        }
+    }
+}
+.form-one-col{
+    width: $tenPercent * 8;
+    @include media-breakpoint-down(md) {
+        width: $fullsize;
+    }
+    .btn{
+        width: $tenPix * 12;
+        font-size: $default-font-size;
+        margin-right: $tenPix;
+        display: inline-block;
+        @include media-breakpoint-down(sm) {
+            padding: $one-em $one-em * 0.5;
+            font-size: $default-font-size * 0.8;
+            width: calc((#{$tenPercent} * 5) - 7px);
+
+        }
+        &--cancel{
+            background-color: $color-white;
+            color: $color-blue;
+            margin-right:0;
+            &:hover{
+                background-color: $color-blue-hover;
+                border-color:  $color-blue-hover;
+                color:$color-white;
+            }
+        }
+    }
+}
+
+.upload-list{
+    display: flex;
+    padding: $one-em*2 0;
+    margin-bottom: $one-em * 1.5;
+    @include media-breakpoint-down(sm) {
+        padding: $one-em 0;
+    }
+    &__item{
+        width: calc(#{$tenPercent} * 3.4 - #{$tenPix} );
+        margin-right: $fivePix * 3;
+        @include media-breakpoint-down(xs) {
+            width: calc(#{$tenPercent} * 3.4 - 8px );
+            margin-right: 8px;
+        }
+        &:last-child{
+            margin-right: $zero;
+        }
+        img{
+            max-width: 100%;
+        }
+    }
+    &__label{
+        font-size: $default-font-size * 0.875;
+        display: block;
+        text-align: center;
+        padding-top: $tenPix;
+        @include media-breakpoint-down(xs) {
+            line-height: 1.3;
+            font-size: $one-em * .65 !important;
+        }
+    }
+    &__tile{
+        background-color: $default-bg-color;
+        position: relative;
+        overflow: hidden;
+        width: $fullsize;
+        @include borderradius($fivePix);
+    }
+    &__button{
+       cursor: pointer;
+       position: absolute; 
+       height: $fullsize;
+       width: $fullsize;
+       opacity: $zero;
+       z-index: 10;
+    }
+    &__fake-circle{
+        width: $tenPercent * 2.4;
+        height: $tenPercent * 2.4;
+        position: absolute;
+        top: $halfsize;
+        left: $halfsize;
+        border: $onePix solid $color-light-grey2;
+        @include translate(-#{$halfsize}, -#{$halfsize});
+        @include borderradius($fullsize); 
+        z-index: 9; 
+        @include media-breakpoint-down(sm) {
+            width: $fivePix * 8;
+            height: $fivePix * 8;
+        }
+        @include media-breakpoint-down(xs) {
+            width: $fivePix * 6;
+            height: $fivePix * 6;
+        }
+        &:before, &:after{
+            content: '';
+            border: $onePix solid $color-light-grey2;
+            height: $onePix;
+            width: calc(#{$fullsize} - #{$tenPix} * 2);
+            left: $halfsize;
+            top: $halfsize;
+            position: absolute;
+            @include translate(-#{$halfsize}, -#{$halfsize});
+            @include media-breakpoint-down(xs) {
+                width: calc(#{$fullsize} - #{$fivePix} * 2);
+            }
+        }
+        &:after{
+            height: calc(#{$fullsize} - #{$tenPix} * 2);
+            width: $onePix;
+            @include media-breakpoint-down(xs) {
+                height: calc(#{$fullsize} - #{$fivePix} * 2);
+            }
+        }
+    }
+    &__button-group{
+        position: absolute;
+        bottom: $zero;
+        width: $fullsize;
+        display: block;
+    }
+    &__button-edit{
+        background-image: url(../../images/edit-icon.png);
+        background-position: center 48%;
+        background-repeat: no-repeat;
+        background-size: calc(#{$halfsize} + #{$fivePercent}) auto;
+        position: relative;
+        display: block;
+        height: $fivePix * 5;
+        width: $fivePix * 5;
+        @include borderradius($fullsize); 
+        text-align: center;
+        background-color: rgba($color:$color-blue, $alpha: 0.9);
+        margin: $tenPix;
+        float: right;
+        @include media-breakpoint-down(sm) {
+            height: $fivePix * 4;
+            width: $fivePix * 4;
+        }
+    }
+}
+.location-detail,.job-detail{
+    padding: $one-em*2 0;  
+    @include media-breakpoint-down(sm) {
+        padding: $one-em 0;
+    }
+}
+.form-group{
+    &--gps{
+        &:after{
+            background-position: calc(#{$fullsize} - #{$fivePix}) calc(#{$fullsize} -  4px) !important;   
+            height: $tenPix * 2.6 !important;
         }
     }
 }

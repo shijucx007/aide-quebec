@@ -31,12 +31,21 @@ let components = {
         this.starRating();
         this.addArrowButton();
         this.niceScroll();
+        this.uploadList();
     },
     resize: function(){
         components.squareContainer();
         components.initSidebar();
-        components.adjustCalendarPos();        
-    },   
+        components.adjustCalendarPos();  
+        components.uploadList();      
+    },  
+    uploadList: function(){
+        let profileBox = $(".upload-list__item");
+        $(profileBox).each(function () {
+            let elemWidth = $(this).width();
+            $(this).find('.upload-list__tile').height(elemWidth);
+        });
+    } ,
     niceScroll: function(){
         var nicescroll = $('[nicescroll]');
         if(nicescroll.length){
