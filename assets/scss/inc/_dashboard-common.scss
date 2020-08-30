@@ -1225,3 +1225,25 @@ p{
         }
     }
 }
+
+
+.wallet-balance{
+    position: absolute;
+    top: $zero;
+    right: $zero;
+    text-align: right;
+    font-size: $default-font-size * 0.85;
+    line-height: 1.2;
+    span{
+        display: block;
+        color: $color-blue;
+        font-weight: 500;
+        font-size: $default-font-size;
+    }
+    @include media-breakpoint-down(md) {
+       + .search-box{
+           padding-top: $one-em * 1.5;
+       }
+    }
+}
+
