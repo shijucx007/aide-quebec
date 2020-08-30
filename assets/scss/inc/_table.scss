@@ -192,6 +192,9 @@
                     }
                     &__content{
                         min-height: $tenPix * 10;
+                        p + p {
+                            margin: $one-em * 1.5 $zero;
+                        }
                     }
                     h5{
                         padding-bottom: 0.5em;
@@ -233,6 +236,65 @@
                                     @include rotate(-45deg);
                                 }
                             }
+                        }
+                    }
+                }
+            }
+        }
+        &.provider-req{
+            .status{
+                font-weight: $font-weight-semi-bold;
+                &--open{
+                    color: $color-light-blue2;
+                }
+                &--progress{
+                    color: $color-orange;
+                }
+                &--accepted{
+                    color: $color-blue;
+                }
+                &--completed{
+                    color: $color-green;
+                }
+                &--declined{
+                    color: $color-red-dark;
+                }
+            }
+            .status-msg{
+                          
+                &--declined{
+                    color: $color-red-dark;
+                    text-transform: uppercase;
+                    font-weight: $font-weight-semi-bold;       
+                }
+                &--completed{
+                    color: $color-green;
+                }
+                               
+            }
+            p + p{
+                margin: $one-em * 0.75 0;            
+            }
+            .action-button{
+                .btn{
+                    border-color: $color-blue;
+                    color: $color-blue;
+                    text-transform: uppercase;
+                    font-size: $default-font-size * 0.8;
+                    padding: $one-em * 0.55 $one-em * 0.75;
+                    margin-right: 3px;
+                    @include media-breakpoint-down(sm) {
+                        font-size: $default-font-size * 0.65;
+                    }
+                    &--chatnow{
+                        background: transparent url(../../images/chat-icon2.png) no-repeat $tenPix $tenPix;
+                        padding-left: $one-em * 2.8;
+                        @include media-breakpoint-down(sm) {
+                            background-position: $fivePix $fivePix;
+                            padding-left: $one-em * 3;
+                        }
+                        &:hover{
+                            background-image: url(../../images/chat-icon.png);
                         }
                     }
                 }
