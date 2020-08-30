@@ -17,7 +17,7 @@ p{
 
 .default-container{
     background-color: $color-white;
-    padding: $one-em * 4;
+    padding: $one-em * 3.2;
     @include borderradius($onePix * 3);
 }
 
@@ -327,7 +327,7 @@ p{
                 @include media-breakpoint-up(lg) {
                     &:first-child{                    
                         border-width: $zero;
-                        padding-left: 0;
+                        padding-left: $zero;
                     }
                      &:last-child{     
                         margin-left: auto;
@@ -582,7 +582,7 @@ p{
 
 }
 .request-form{
-    padding: $one-em * 4;
+    padding: $one-em * 3.2;
     width: $tenPercent * 5.5;
     @include media-breakpoint-down(lg) {
         padding: $one-em * 2.5;
@@ -597,7 +597,7 @@ p{
     border-left: 1px solid rgba($color: $color-dark-grey, $alpha: 0.1);
     @include media-breakpoint-down(lg) {
         width: $fullsize;
-        border-width: 0;
+        border-width: $zero;
     }
 }
 .provider-title{
@@ -690,7 +690,7 @@ p{
             position: absolute;
             @include borderradius($tenPercent*10);
             top: $onePix * 7;
-            right: 0;
+            right: $zero;
         }
         &--active{
             color: $color-green;
@@ -703,8 +703,8 @@ p{
         border:1px solid rgba($color: $color-dark, $alpha: 0.2); 
         font-size: $default-font-size * 0.85;
         position: absolute;
-        bottom: 0;
-        right: 0;
+        bottom: $zero;
+        right: $zero;
         padding: $one-em* 0.25  $one-em; 
         font-size: $default-font-size* 0.8;
         color: $default-font-color;
@@ -767,14 +767,14 @@ p{
             img{
                 width: $fullsize;
                 max-width: $fullsize;
-                margin-right: 0;
+                margin-right: $zero;
                 margin-bottom: $one-em * 1.5;
             }
         }
     }
     &__pic{
         margin-right: $one-em * 1.5;
-        margin-bottom: 0;
+        margin-bottom: $zero;
     }
     &__description{
         h4{
@@ -790,12 +790,12 @@ p{
             width: $fullsize;
         }
         @include media-breakpoint-down(sm) {           
-            padding-right: $tenPix * 10;
+            padding-right: $tenPix * 1$zero;
         }
         .chat-btn-holder{
             position: absolute;
-            right: 0;
-            top: 0;
+            right: $zero;
+            top: $zero;
             text-align: right;
             display: block;
             width: $tenPix * 13;
@@ -815,7 +815,7 @@ p{
                 position: absolute;
                 @include borderradius($tenPercent*10);
                 top: $onePix * 7;
-                left: 0;                
+                left: $zero;                
             }
             &--active{
                 color: $color-green;
@@ -850,7 +850,7 @@ p{
         }
     }
     &__rate{
-        padding: $one-em * 1.25 0;
+        padding: $one-em * 1.25 $zero;
         display: block;
         em{
             font-size: $default-font-size * 1.4;
@@ -873,7 +873,7 @@ p{
                 position: absolute;
                 @include borderradius($tenPercent*10);
                 top: $onePix * 5;
-                left: 0;                
+                left: $zero;                
             }
             &--active{
                 color: $color-green;
@@ -925,9 +925,9 @@ p{
 }
 
 .form-two-col{  
-    padding: $one-em * 2 0;
+    padding: $one-em * 2 $zero;
     @include media-breakpoint-down(sm) {
-        padding: $one-em 0;
+        padding: $one-em $zero;
     }
     &__item{
         width: $tenPercent * 8;
@@ -938,13 +938,14 @@ p{
             display: flex;
             @include media-breakpoint-down(sm) {
                 display: block;
-                margin-bottom: 0;
+                margin-bottom: $zero;
             }
         }
         label{
             width: $tenPercent * 4.5;
             max-width: $tenPix * 15;
             padding-top: $tenPix + 2;
+            padding-right: $tenPix;
             @include media-breakpoint-down(md) {
                 max-width: $tenPix * 11.5;
             }
@@ -952,6 +953,9 @@ p{
                 width: $fullsize;
                 max-width:  $fullsize;
             }
+        }
+        .form-content{
+             padding-top: $tenPix + 2;            
         }
         .form-control{
             width: $tenPercent * 5.5;
@@ -964,6 +968,7 @@ p{
         }
     }
 }
+
 .form-one-col{
     width: $tenPercent * 8;
     @include media-breakpoint-down(md) {
@@ -980,14 +985,89 @@ p{
             width: calc((#{$tenPercent} * 5) - 7px);
 
         }
-        &--cancel{
+        &--cancel, &--edit{
             background-color: $color-white;
             color: $color-blue;
-            margin-right:0;
+            margin-right:$zero;
             &:hover{
                 background-color: $color-blue-hover;
                 border-color:  $color-blue-hover;
                 color:$color-white;
+            }
+        }
+        &--edit{
+            width: $tenPix * 15;
+        }
+    }
+}
+
+.edit-profile{
+    &--mode-save{
+        .form-two-col__item{
+            border-bottom: 1px solid rgba($color: $color-dark-grey, $alpha: 0.1);    
+            width: $fullsize;  
+            .form-group{
+                display: flex;
+            } 
+            label{
+                width: $tenPercent * 4.5;
+                max-width: $tenPix * 15;
+                padding-top: $tenPix + 2;
+                @include media-breakpoint-down(md) {
+                    max-width: $tenPix * 11.5;
+                }
+                @include media-breakpoint-down(sm) {
+                    width: $tenPercent * 4.5;
+                    max-width: $tenPix * 15;
+                }
+            }
+            .form-content{
+                 padding-top: $tenPix + 2;
+                 @include media-breakpoint-down(sm) {
+                    width: $tenPercent * 5.5;
+                    font-size: $one-em * .85;
+                }
+                @include media-breakpoint-down(xs) {
+                    font-size: $one-em * .75;
+                }
+            }  
+        }
+        .form-group{
+            margin: $one-em * 0.7 $zero $one-em * 1.1 $zero;
+        }
+        .form-one-col{
+            width: $fullsize;     
+            .form-group{
+                display: flex;
+            }
+            label{
+                width: $tenPercent * 4.5;
+                max-width: $tenPix * 15;
+                padding-top: $tenPix + 2;
+                @include media-breakpoint-down(md) {
+                    max-width: $tenPix * 11.5;
+                }
+                @include media-breakpoint-down(sm) {
+                    width: $tenPercent * 4.5;
+                    max-width: $tenPix * 15;
+                }
+            }
+            .form-content{
+                 padding-top: $tenPix + 2;
+                 @include media-breakpoint-down(sm) {
+                    width: $tenPercent * 5.5;
+                    font-size: $one-em * .85;
+                }
+                @include media-breakpoint-down(xs) {
+                    font-size: $one-em * .75;
+                }
+            }
+            .job-detail{
+                .form-group{
+                    border-bottom: 1px solid rgba($color: $color-dark-grey, $alpha: 0.1); 
+                    padding-bottom: $one-em * 1.1;  
+                    margin-top: $zero;
+                }
             }
         }
     }
@@ -995,10 +1075,10 @@ p{
 
 .upload-list{
     display: flex;
-    padding: $one-em*2 0;
+    padding: $one-em*2 $zero;
     margin-bottom: $one-em * 1.5;
     @include media-breakpoint-down(sm) {
-        padding: $one-em 0;
+        padding: $one-em $zero;
     }
     &__item{
         width: calc(#{$tenPercent} * 3.4 - #{$tenPix} );
@@ -1011,7 +1091,8 @@ p{
             margin-right: $zero;
         }
         img{
-            max-width: 100%;
+            max-width: $fullsize;
+            width: $fullsize;
         }
     }
     &__label{
@@ -1105,9 +1186,9 @@ p{
     }
 }
 .location-detail,.job-detail{
-    padding: $one-em*2 0;  
+    padding: $one-em*2 $zero;  
     @include media-breakpoint-down(sm) {
-        padding: $one-em 0;
+        padding: $one-em $zero;
     }
 }
 .form-group{
@@ -1115,6 +1196,32 @@ p{
         &:after{
             background-position: calc(#{$fullsize} - #{$fivePix}) calc(#{$fullsize} -  4px) !important;   
             height: $tenPix * 2.6 !important;
+        }
+    }
+}
+
+.notifications{
+    @extend .drop-shadow;  
+    @include borderradius($onePix * 5);
+    border: 1px solid rgba($color: $color-dark-grey, $alpha: 0.1);  
+    &__item{
+        background-color:$color-white;
+        border-top: 1px solid rgba($color: $color-dark-grey, $alpha: 0.1);   
+        padding: $one-em * 1.25; 
+        @include media-breakpoint-down(md) {
+            font-size: $default-font-size * 0.9;
+        }
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.8;
+        }
+        &--title{
+            background-color: transparent;
+            font-weight: $font-weight-semi-bold;
+            @include borderradius($onePix * 5 $onePix * 5 $zero $zero);
+            padding: $one-em $one-em * 1.25; 
+        }
+        &:last-child{
+            @include borderradius($zero $zero $onePix * 5 $onePix * 5);
         }
     }
 }

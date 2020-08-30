@@ -98,136 +98,23 @@
                         </div>
                         <div class="col-md-8 col-lg-9 col-sm-12 col-12">
                             <section class="content w-100">
-                                <h2>Edit Profile</h2>
-                                <div class="edit-profile default-container">
-                                    <h4 class="edit-profile__title">Personal Information</h4>
-                                    <form class="form">
-                                    <ul class="form-two-col">
-                                        <li class="form-two-col__item">
-                                        <div class="form-group">
-                                        <label for="firstName">First Name</label>
-                                        <input type="text" class="form-control form-control-lg" id="firstName" name="firstName" autocomplete="off"/>
-                                        </div>
-                                    </li>
-                                    <li class="form-two-col__item">
-                                        <div class="form-group">
-                                        <label for="lastName">Last Name</label>
-                                        <input type="text" class="form-control form-control-lg" id="lastName" name="lastName" autocomplete="off"/>
-                                        </div>
-                                    </li>
-                                    <li class="form-two-col__item">
-                                        <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="email" class="form-control form-control-lg is-invalid" id="email" name="email" autocomplete="off"/>
-                                        </div>
-                                    </li>
-                                    <li class="form-two-col__item">
-                                        <div class="form-group">
-                                        <label for="mobile">Mobile</label>
-                                        <input type="text" class="form-control form-control-lg" id="mobile" name="mobile" autocomplete="off"/>
-                                        </div>
-                                    </li>
-                                    <li class="form-two-col__item">
-                                        <div class="form-group">
-                                        <label for="aboutme">About Me</label>
-                                        <textarea id="aboutme" name="aboutme" class="form-control form-control-lg"></textarea>
-                                        </div>
-                                    </li>
-                                    </ul>   
-                                    
-                                    <div class="form-one-col">
-                                        <h4 class="edit-profile__title">Profile Image and Documents</h4>
-                                        <ul class="upload-list">
-                                            <li class="upload-list__item">
-                                                <div class="upload-list__tile upload-list__tile--uploader" style="display: none;">
-                                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" class="upload-list__button" id="uploadPic" />
-                                                    <span class="upload-list__fake-circle"></span>
-                                                </div>
-                                                <div class="upload-list__tile upload-list__tile--profile">
-                                                    <img src="../../img/samples/user-1.jpeg" alt="user name" />
-                                                    <span class="upload-list__button-group">
-                                                        <a class="upload-list__button-edit" href="#"data-target="#uploadPic" onclick="UpdateProfile(this, 1);return false"></a>
-                                                    </span>
-                                                </div>
-                                                <label class="upload-list__label text-xs-left text-sm-left text-xxs-left">Update image</label>
-                                            </li>
-                                            <li class="upload-list__item">
-                                                <div class="upload-list__tile upload-list__tile--uploader" style="display: none;">
-                                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" class="upload-list__button" id="uploadID" />
-                                                    <span class="upload-list__fake-circle"></span>
-                                                </div>
-                                                <div class="upload-list__tile upload-list__tile--profile">
-                                                    <img src="../../img/samples/user-1.jpeg" alt="user name" />
-                                                    <span class="upload-list__button-group">
-                                                        <a class="upload-list__button-edit" href="#" data-target="#uploadID" onclick="UpdateProfile(this, 1);return false"></a>
-                                                    </span>
-                                                </div>
-                                                <label class="upload-list__label text-xs-left text-sm-left text-xxs-left">Update id proof</label>   
-                                            </li>
-                                            <li class="upload-list__item">
-                                                <div class="upload-list__tile upload-list__tile--uploader" style="display: none;">
-                                                    <input type="file" accept="image/x-png,image/gif,image/jpeg" class="upload-list__button" id="uploadSelfie" />
-                                                    <span class="upload-list__fake-circle"></span>
-                                                </div>
-                                                <div class="upload-list__tile upload-list__tile--profile">
-                                                    <img src="../../img/samples/user-1.jpeg" alt="user name" />
-                                                    <span class="upload-list__button-group">
-                                                        <a class="upload-list__button-edit" href="#" data-target="#uploadSelfie" onclick="UpdateProfile(this, 1);return false"></a>
-                                                    </span>
-                                                </div>
-                                                <label class="upload-list__label text-xs-left text-sm-left text-xxs-left">Update selfie with id proof</label>
-                
-                                            </li>
-                                        </ul>
-                                        <h4 class="edit-profile__title">Location Details</h4>
-                                       <div class="location-detail">                                        
-                                            <div class="form-group form-group--gps">
-                                                <input type="text" class="form-control form-control-lg" placeholder="Hudson" id="location">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="map-container"
-                                                    style="background: url(../../img/samples/map2.jpg) no-repeat; background-size: cover; background-position: center center; min-height: 200px;">
-                                                </div>                     
-                                            </div>
-                                        </div>
-                                        <h4 class="edit-profile__title">Job Details</h4>
-                                        <div class="job-detail">     
-                                                <div class="form-group">
-                                                    <label for="servicetype">Service Type</label>
-                                                    <select class="form-control form-control-lg" id="servicetype">
-                                                    <option>Choose your Service</option>
-                                                    <option value="type1">Service Type one</option>
-                                                    <option value="type2">Service Type two</option>
-                                                    <option value="type3">Service Type three</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="userdesc">Zip Code</label>
-                                                    <textarea class="form-control form-control-lg" id="userdesc"></textarea>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                                        <label for="feetype">Fee Type</label>
-                                                        <select class="form-control form-control-lg" id="feetype">
-                                                        <option>Choose your type</option>
-                                                        <option value="type1">Type one</option>
-                                                        <option value="type2">Type two</option>
-                                                        <option value="type3">Type three</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group col-lg-6 col-md-6 col-sm-12">
-                                                        <label for="feeamount">Fee Amount</label>
-                                                        <input type="text" class="form-control form-control-lg is-invalid" id="feeamount">
-                                                    </div>  
-                                                </div>    
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-primary text-uppercase">Save</button>
-                                                    <button type="submit" class="btn btn-primary btn--cancel text-uppercase">Cancel</button>
-                                                </div>
-                                        </div>
-                                    </div>  
-                                    
-                                </form>
+                                <h2>Notifications</h2>
+                                <div class="notifications">
+                                    <ul class="notifications__list">
+                                        <li class="notifications__item notifications__item--title">Notification Title</li>
+                                        <li class="notifications__item">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                        <li class="notifications__item">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                        <li class="notifications__item">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</li>
+                                        <li class="notifications__item">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+                                        <li class="notifications__item">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, 
+                                            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </li>
+                                        <li class="notifications__item">Ut enim ad minim veniam, quis nostrud exercitation</li>
+                                        <li class="notifications__item">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                        <li class="notifications__item">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+                                        <li class="notifications__item">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+                                        <li class="notifications__item">Ut enim ad minim veniam, quis nostrud exercitation</li>
+                                        <li class="notifications__item">Lorem ipsum dolor sit amet, consectetur adipiscing elit</li>
+                                    </ul>
                                 </div>
                             </section>
                         </div>
