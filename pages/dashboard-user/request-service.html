@@ -552,9 +552,11 @@
             }  
 
             function updateProviderListingHeight(){
-                var $formHeight = $('.request-form form').height();
-                $('#providerList').height($formHeight.toFixed(0)+'px');
-                $('[nicescroll]').getNiceScroll().resize();
+                var $form = $('.request-form form');
+                if($form.length){
+                     $('#providerList').height($form.height().toFixed(0)+'px');
+                    $('[nicescroll]').getNiceScroll().resize();
+                }               
             }
 
         $(document).ready(function () {            

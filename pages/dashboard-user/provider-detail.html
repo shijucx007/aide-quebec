@@ -109,13 +109,18 @@
                                                     <span class="rating-box__star rateYo p-0"
                                                         data-rateyo-rating="2.5"
                                                         data-rateyo-star-width="16"></span>
-                                                       <span class="status status--active">Available</span> 
+                                                       <span class="status status--active d-sm-none d-xs-none d-md-none d-lg-block">Available</span> 
                                                 </div>
                                             </span>
                                             <span class="provider-details__rate"><em>$2.99</em> per hour</span>
                                             <span class="provider-details__contact provider-details__contact--phone">xxxxxxxxxx</span>
                                             <span class="provider-details__contact provider-details__contact--email">
-                                                <a href="mailto:xxxxx@gmail.com">xxxxx@gmail.com</a></span>
+                                                <a href="mailto:xxxxx@gmail.com">xxxxx@gmail.com</a>
+                                            </span>
+                                            <span class="chat-btn-holder">
+                                                <span class="status status--active">Available</span> 
+                                                <a href="#" class="chart-btn text-uppercase rounded">Chat Now</a>
+                                            </span>
                                         </figcaption>
                                       </figure>                                         
                                       <div class="provider-details__description">
@@ -212,42 +217,6 @@
 
     <script type="text/javascript" src="../../dist/js/libs.js"></script>
     <script type="text/javascript" src="../../dist/js/dashboard.js"></script>
-
-    <script type="text/javascript">
-
-            function scheduleNow($elem, id){
-                var $this = $($elem),
-                $requestScheduleContent = '<li class="provider-listing__item provider-listing__item--scheduler" id="requestScheduler"></li>';   
-
-                $this.hide();
-                $(document).find('#requestScheduler').remove();
-                $this.closest('li').after($requestScheduleContent);
-                $this.parentsUntil('li').parent().siblings('li').find('.schedule-btn').show();
-                $.ajax({
-                    url: "ajax-content2.html",
-                    data: { id: id },
-                    dataType: "html",
-                    beforeSend: function (xhr) {
-
-                    }
-                }).done(function (data) {
-                    $(document).find('#requestScheduler').removeClass('loading').html(data);
-                });
-                return false;
-            }  
-
-            function updateProviderListingHeight(){
-                var $formHeight = $('.request-form form').height();
-                $('#providerList').height($formHeight.toFixed(0)+'px');
-                $('[nicescroll]').getNiceScroll().resize();
-            }
-
-        $(document).ready(function () {            
-
-            updateProviderListingHeight(); 
-
-        });
-    </script>
 </body>
 
 </html>

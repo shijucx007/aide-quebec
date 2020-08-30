@@ -744,22 +744,25 @@ p{
     background-color:$color-white;   
     border: 1px solid rgba($color: $color-dark-grey, $alpha: 0.1);
     padding: $one-em *3.2;
-    @include media-breakpoint-up(sm) {
+    @include media-breakpoint-down(sm) {
         padding: $one-em;
     }
     &__holder{
         display: flex;
         flex-wrap: wrap;
         margin-bottom: $one-em * 2;
-        width: calc(#{$fullsize} - #{$tenPix} * 13);
-        @include media-breakpoint-up(sm) {
+        @include media-breakpoint-up(md) {
             img{
                 max-width: 275px;
             }
         }
-        @include media-breakpoint-down(sm) {
+        @include media-breakpoint-down(md) {           
+            width: $fullsize;
             img{
-                width: 100%;
+                width: $fullsize;
+                max-width: $fullsize;
+                margin-right: 0;
+                margin-bottom: $one-em * 1.5;
             }
         }
     }
@@ -772,11 +775,73 @@ p{
             padding-bottom: $one-em * 0.75;
         }
     }
+    &__profile{
+        $containerwidth: calc((#{$fullsize} - 1.5rem) - 280px);
+        padding-right: $tenPix * 13;
+        width: $containerwidth;
+        position: relative;
+        @include media-breakpoint-down(md) {           
+            width: $fullsize;
+        }
+        @include media-breakpoint-down(sm) {           
+            padding-right: $tenPix * 10;
+        }
+        .chat-btn-holder{
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: right;
+            display: block;
+            width: $tenPix * 13;
+        }
+        .status{
+            display: none;
+            color: $default-font-color;
+            padding-left: $one-em;
+            font-size: $default-font-size * 0.8;
+            position: relative;
+            margin-left: $one-em * 0.8;
+            &:after{
+                content: '';
+                height: $onePix * 6;
+                width: $onePix * 6;
+                background-color: rgba($color: $color-dark, $alpha: 0.2); 
+                position: absolute;
+                @include borderradius($tenPercent*10);
+                top: $onePix * 7;
+                left: 0;                
+            }
+            &--active{
+                color: $color-green;
+                &:after{
+                    background-color: $color-green;
+                }
+            }
+            @include media-breakpoint-down(md) {           
+                display: inline-block;
+                padding-bottom: $one-em;
+            }
+        }
+        .chart-btn{
+            background: $color-blue url(../../images/chat-icon.png) no-repeat 10px center;
+            color: $color-white;
+            border:1px solid $color-blue;
+            padding: $one-em * 0.75;
+            padding-left: $tenPix * 4;
+            font-size: $default-font-size * .81;
+            @include media-breakpoint-down(md) {           
+                font-size: $default-font-size * .6;
+            }
+        }
+    }
     &__profile-name{
         font-size: $default-font-size * 1.5;
         color: $color-black;
         display: block;
         padding-bottom: $one-em * 0.25;
+        @include media-breakpoint-down(sm) {           
+            font-size: $default-font-size * 1.15;
+        }
     }
     &__rate{
         padding: $one-em * 1.25 0;
