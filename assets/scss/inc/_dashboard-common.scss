@@ -564,6 +564,11 @@ p{
                 color: $color-white;
             }
         }
+        &.add-cash-btn{
+            @media (min-width: 767px) and (max-width: 990px) {
+                margin-bottom: $one-em * 1.5;
+            }
+        }
     }
 }
 
@@ -1323,5 +1328,32 @@ p{
     }
     .btn{
         margin-top: $one-em * 1.2;
+    }
+}
+
+.add-cash{    
+    
+    max-width: $tenPix * 25;
+    display: none;
+    @include media-breakpoint-down(md) {
+        max-width: $fullsize;
+        width: $fullsize;    }
+    &-inner{
+        display: flex;
+    }
+    .btn{
+        margin-left: $fivePix;
+        width: $tenPix * 14;
+        white-space: nowrap;
+        @include media-breakpoint-down(md) {
+            margin-bottom: $one-em * 1.5;
+        }
+        @include media-breakpoint-down(sm) {
+            position: relative;
+            height: $tenPix * 10;
+            max-height: 42px;
+            @include borderradius(3px !important);
+            line-height: 1;
+        }
     }
 }

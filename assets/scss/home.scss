@@ -4,7 +4,6 @@
 @import "inc/overrides";
 
 @import "~bootstrap/scss/mixins";
-@import "../../node_modules/@rateyo/jquery/lib/cjs/jquery.rateyo.css";
 
 // Optional
 @import "~bootstrap/scss/reboot";
@@ -18,23 +17,18 @@
 @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/card";
 @import "~bootstrap/scss/list-group";
-@import "~bootstrap/scss/badge";
-@import "~bootstrap/scss/tables";
-@import "~bootstrap/scss/modal";
 
 @import "inc/vars";
 @import "inc/typography";
 @import "inc/mixins";
 @import "inc/reset";
-@import "inc/table";
+@import "inc/common";
 @import "inc/form";
 @import "inc/header";
 @import "inc/footer";
 @import "inc/common";
-@import "inc/dashboard-common";
+//@import "inc/dashboard-common";
 @import "inc/layout";
 @import "inc/filter";
 @import "inc/teaser";
-@import "inc/plugins";
-@import "inc/sidebar";
-@import "inc/rating";
+@import "inc/home";

@@ -89,7 +89,7 @@
                         Wallet Ballance:<span>$80.00</span>
                       </span>
                       <div class="search-box row">
-                        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+                        <div class="col-lg-7 col-md-12col-sm-12 col-xs-12">
                             <div class="d-flex search-box__items">
                                 <div class="form-group">
                                   <select class="form-control form-control-lg" id="serviceType">
@@ -108,10 +108,15 @@
                                 </div>
                             </div>
                           </div> 
-                          <div class="col-lg-4 col-md-4 d-flex flex-reverse">
-                              <a href="#" class="btn btn-primary search-box__button search-box__button--blue">Add Cash</a>
+                          <div class="col-lg-5 col-md-12 d-flex flex-reverse">
+                              <a href="#" id="addCashButton" class="btn btn-primary search-box__button search-box__button--blue add-cash-btn">Add Cash</a>
+                              <div class="add-cash" id="addCashHolder">
+                                  <div class="add-cash-inner">
+                                  <input type="text" class="form-control form-control-lg" id="addCash"/>
+                                    <button type="button" class="btn btn-primary search-box__button search-box__button--blue" id="addCashSubmit">Add Cash</button>
+                                  </div>
+                                </div>
                           </div> 
-
                       </div>
                       <div class="table-box rounded">
                         <table class="table">
@@ -265,6 +270,13 @@
                     });
                 }
             });
+
+            $('#addCashButton').on('click', function(){
+                $(this).hide();
+                $('#addCashHolder').fadeIn();
+                $('#addCash').focus();
+            });
+
        });
     </script>
   </body>

@@ -34,6 +34,9 @@
           figcaption{
               color: $color-blue;
           }
+          img{
+            @include scale(1.2);
+          }
        }
     }
     &__caption{
@@ -51,6 +54,19 @@
         overflow: hidden;
         background-size: auto $fullsize;
         background-position: center center;
+    }
+    &__pic-inner{
+       display: block;
+       position: absolute; 
+       height: $fullsize;
+       width: $fullsize;
+       overflow: hidden;
+       img{
+            @include scale(1);
+            @include transition(transform 500ms ease 0s);
+           max-width: auto;
+           width: $fullsize; 
+       }
     }
     .rounded {
         border-radius: .2rem!important;

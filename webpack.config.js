@@ -11,7 +11,8 @@ module.exports = {
   entry: {
         'libs': ['./assets/js/libs.js'],
         'main': ['./assets/js/main.js'],
-        'dashboard': ['./assets/js/dashboard.js']
+        'dashboard': ['./assets/js/dashboard.js'],
+        'home': ['./assets/js/home.js']
   },
   resolve: {
         alias: {
@@ -118,7 +119,7 @@ module.exports = {
       // This cleans the dist folder before each build, so that only used files will be available
       new CleanWebpackPlugin(['dist']),
       new BrowserSyncPlugin({
-            proxy: 'scx-ind.irpages2.equitystory/shiju/pages/dashboard-provider/payment.html'
+            proxy: 'scx-ind.irpages2.equitystory/shiju/index.html'
       })
   ]
 };
