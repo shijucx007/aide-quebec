@@ -1263,28 +1263,28 @@ p{
     }
 }
 .payment-list{
-    display: flex;
-    flex-wrap: wrap;
+    // display: flex;
+    // flex-wrap: wrap;
     padding-top: $one-em * 1.5;
     @include media-breakpoint-down(md) {
         display: block;
     }
     &__item{
-        width: $fullsize/2;
-        padding-right: $one-em * 1.35;
-        padding-left: $zero;
+        width: $fullsize;
+        // padding-right: $one-em * 1.35;
+        // padding-left: $zero;
         padding-bottom: $one-em;
         @include media-breakpoint-down(md) {
-            padding-right: $zero !important;
-            padding-left: $zero !important;
+            // padding-right: $zero !important;
+            // padding-left: $zero !important;
             width: $fullsize;
         }
         @include media-breakpoint-down(sm) {
             padding-bottom: $zero;
         }
         &:nth-last-of-type(2n){
-            padding-right: $zero;
-            padding-left: $one-em * 1.35;
+            // padding-right: $zero;
+            // padding-left: $one-em * 1.35;
         }
         .form-group{
             label{
@@ -1303,6 +1303,17 @@ p{
             font-size: $default-font-size * 0.75;
             line-height: 1;
             padding: $one-em * 0.75 $zero $one-em * 0.75 $tenPix * 5;
+        }
+    }
+    &__form-group{
+        display: flex;
+        flex-wrap: wrap;
+        .form-group{
+            width: calc((#{$fullsize} - #{$tenPix} * 2) / 3);
+            margin-right: $tenPix;
+            &:nth-last-of-type(1){
+                margin-right: $zero;
+            }
         }
     }
     .two-col{
@@ -1330,7 +1341,12 @@ p{
         margin-top: $one-em * 1.2;
     }
 }
-
+.payment-figure{
+    padding-top: $one-em * 1.5;
+    h4{
+        color: $color-blue !important; 
+    }   
+}
 .add-cash{    
     
     max-width: $tenPix * 25;
