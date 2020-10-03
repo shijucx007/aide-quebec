@@ -4,9 +4,11 @@
     &__tiles{
        margin-right: $onePercent * 3;
        margin-bottom: $one-em * 1.25;
-       flex: 1 0 22.75%;
+       //flex: 1 0 22.75%;
+       width: 22.75%;
        @include media-breakpoint-down(md) {
-        flex: 1 0 calc( #{$halfsize} - (#{$tenPix} * 2)); 
+        //flex: 1 0 calc( #{$halfsize} - (#{$tenPix} * 2)); 
+        width: calc( #{$halfsize} - #{$tenPix});
         margin-right: $tenPix * 2;
         margin-bottom: $tenPix * 3;
         }
