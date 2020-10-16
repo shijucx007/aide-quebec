@@ -16,6 +16,7 @@
     "gsap": "^3.4.0",
     "jquery": "^3.5.1",
     "jquery.nicescroll": "^3.7.6",
+    "lightslider": "^1.1.6",
     "moment": "^2.27.0",
     "pikaday": "^1.8.0",
     "popper.js": "^1.16.1",

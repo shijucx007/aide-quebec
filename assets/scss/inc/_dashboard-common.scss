@@ -970,11 +970,14 @@ p{
         }
         &:last-child{
             width: $fullsize;
+            @include media-breakpoint-down(sm) {
+                padding: $one-em * 1.5 $zero;
+            }
         }
     }
 }
 
-.form-one-col{
+.form-one-col, .form-two-col{
     width: $tenPercent * 8;
     @include media-breakpoint-down(md) {
         width: $fullsize;
@@ -1081,7 +1084,6 @@ p{
 .upload-list{
     display: flex;
     padding: $one-em*2 $zero;
-    margin-bottom: $one-em * 1.5;
     @include media-breakpoint-down(sm) {
         padding: $one-em $zero;
     }
@@ -1188,6 +1190,9 @@ p{
             height: $fivePix * 4;
             width: $fivePix * 4;
         }
+    }
+    & + .form-group{
+        margin-bottom: $one-em * 2.5;
     }
 }
 .location-detail,.job-detail{

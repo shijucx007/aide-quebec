@@ -3728,7 +3728,7 @@ jquery.nicescroll@^3.7.6:
   dependencies:
     jquery ">=1.8.3"
 
-jquery@>=1.8.3, jquery@^3.5.1:
+"jquery@>= 1.7.0", jquery@>=1.8.3, jquery@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.5.1.tgz#d7b4d08e1bfdb86ad2f1a3d039ea17304717abb5"
   integrity sha512-XwIBPqcMn57FxfT+Go5pzySnm4KWkT1Tv7gjrpT1srtf8Weynl6R273VJ5GjkRb51IzMp5nbaPjJXMWeju2MKg==
@@ -3877,6 +3877,13 @@ levenary@^1.1.1:
   integrity sha512-mkAdOIt79FD6irqjYSs4rdbnlT5vRonMEvBVPVb3XmevfS8kgRXwfes0dhPdEtzTWD/1eNE/Bm/G1iRt6DcnQQ==
   dependencies:
     leven "^3.1.0"
+
+lightslider@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/lightslider/-/lightslider-1.1.6.tgz#429cdba4e8f496dfa4475d300581ba10c1b2e6c9"
+  integrity sha1-QpzbpOj0lt+kR10wBYG6EMGy5sk=
+  dependencies:
+    jquery ">= 1.7.0"
 
 limiter@^1.0.5:
   version "1.1.5"
