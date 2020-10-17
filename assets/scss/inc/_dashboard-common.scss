@@ -910,11 +910,34 @@ p{
     @extend .default-container;
     @include media-breakpoint-down(md) {
         padding: $one-em;
+    }    
+    &__form-wrapper{
+        display: none;
     }
     &__title{
         font-size: $default-font-size * 1.3;
+        padding-bottom: $one-em * 2;
+        position: relative;
         @include media-breakpoint-down(md) {
             font-size: $default-font-size;
+        }
+        &.active{
+            span{
+                display: none;
+            }
+        }
+    }
+    &__edit-btn{
+        position: absolute;
+        background: transparent url(../../images/edit-icon-sprite.png) no-repeat $zero 4px;
+        cursor: pointer;
+        right: $zero;
+        top: $zero;
+        display: block;
+        height: $one-em;
+        width: $one-em;
+        &:hover{
+            background-position: $zero -104px;
         }
     }
     .form-control{
@@ -929,8 +952,10 @@ p{
     }
 }
 
-.form-two-col{  
-    padding: $one-em * 2 $zero;
+.form-two-col{ 
+    .edit-profile__form-wrapper{
+        padding-bottom: $one-em * 2;
+    }     
     @include media-breakpoint-down(sm) {
         padding: $one-em $zero;
     }
@@ -1083,9 +1108,9 @@ p{
 
 .upload-list{
     display: flex;
-    padding: $one-em*2 $zero;
+    padding-bottom: $one-em*2;
     @include media-breakpoint-down(sm) {
-        padding: $one-em $zero;
+        padding-bottom: $one-em;
     }
     &__item{
         width: calc(#{$tenPercent} * 3.4 - #{$tenPix} );
@@ -1117,6 +1142,10 @@ p{
         position: relative;
         overflow: hidden;
         width: $fullsize;
+        &--profile{
+            background: url(../../images/loader.gif) no-repeat center center;
+            min-height: $tenPix * 3;
+        }
         @include borderradius($fivePix);
     }
     &__button{
@@ -1191,14 +1220,33 @@ p{
             width: $fivePix * 4;
         }
     }
+    &__button-save{
+        background-image: url(../../images/icon-save.png);
+        background-position: center 48%;
+        background-repeat: no-repeat;
+        background-size: calc(#{$halfsize} + #{$fivePercent}) auto;
+        position: relative;
+        display: block;
+        height: $fivePix * 5;
+        width: $fivePix * 5;
+        @include borderradius($fullsize); 
+        text-align: center;
+        background-color: rgba($color:$color-green, $alpha: 0.9);
+        margin: $tenPix;
+        float: left;
+        @include media-breakpoint-down(sm) {
+            height: $fivePix * 4;
+            width: $fivePix * 4;
+        }
+    }
     & + .form-group{
         margin-bottom: $one-em * 2.5;
     }
 }
 .location-detail,.job-detail{
-    padding: $one-em*2 $zero;  
+    padding-bottom: $one-em*2;  
     @include media-breakpoint-down(sm) {
-        padding: $one-em $zero;
+        padding-bottom: $one-em
     }
 }
 .form-group{

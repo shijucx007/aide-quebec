@@ -31,7 +31,7 @@ let components = {
         this.starRating();
         this.addArrowButton();
         this.niceScroll();
-        this.uploadList();
+        this.editProfile();
     },
     resize: function(){
         components.squareContainer();
@@ -39,6 +39,13 @@ let components = {
         components.adjustCalendarPos();  
         components.uploadList();      
     },  
+    editProfile: function(){
+        $('.edit-profile__edit-btn').on('click', function(){
+            $('.edit-profile__title').removeClass('active').next('.edit-profile__form-wrapper').slideUp('fast');
+            $(this).parent().addClass('active').next('.edit-profile__form-wrapper').slideDown(500);
+            setTimeout(function(){ components.uploadList();}, 500);
+        });
+    },
     uploadList: function(){
         let profileBox = $(".upload-list__item");
         $(profileBox).each(function () {
