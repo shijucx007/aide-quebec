@@ -13,32 +13,41 @@
   </head>
   <body>    
     <div class="container-fluid">
-        <div class="row">                       
-            <section class="w-100 banner-header">
-              <div class="banner-main">
-                <header class="header-home w-100 sticky-top">
-                  <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-12 col-xl-12">                         
-                            <nav class="navbar navbar-expand-sm d-flex">
-                              <a href="#" id="mobileNav" class="mobile-nav d-xs-flex d-sm-flex d-md-none d-lg-none"></a>
-                              <a class="navbar-brand d-flex" href="#"><img src="img/logo-blue-2.png" alt="Aide Québec" /></a>
-                              <ul class="navbar-nav d-xxs-none d-xs-none d-sm-flex d-md-flex d-lg-flex">
-                                  <li class="nav-item">
-                                    <a class="nav-link text-uppercase" href="#">About Us</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link text-uppercase" href="#">How it Works</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link text-uppercase" href="#">Contact Us</a>
-                                  </li>
-                              </ul>
-                            </nav>
-                        </div>
-                    </div>
+        <div class="row">
+          <header class="header-home w-100 sticky-top">
+            <div class="container">
+              <div class="row">
+                  <div class="col-md-12 col-lg-12 col-xl-12">                         
+                      <nav class="navbar navbar-expand-sm d-flex">
+                        <a href="#" id="mobileNav" class="mobile-nav d-xs-flex d-sm-flex d-md-none d-lg-none"></a>
+                        <a class="navbar-brand d-flex" href="#">
+                          <img src="img/logo-blue-2.png" class="d-md-flex d-lg-flex" alt="Aide Québec" /></a>
+                        <ul class="navbar-nav d-xxs-none d-xs-none d-sm-none d-md-flex d-lg-flex">
+                            <li class="nav-item">
+                              <a class="nav-link text-uppercase" href="#">About Us</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link text-uppercase" href="#">How it Works</a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link text-uppercase" href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav d-sm-flex d-md-flex d-lg-flex ml-4">
+                          <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="#">Login</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-uppercase" href="#">Register Now</a>
+                          </li>
+                      </ul>
+                      </nav>
                   </div>
-                </header>
+              </div>
+            </div>
+          </header>                       
+            <section class="w-100 banner-header">
+              <div class="banner-main">                
                   <div class="container">
                     <div class="row">
                       <div class="col-md-12 col-12">
@@ -46,8 +55,9 @@
                               <div class="banner-form__title">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit
                               </div>
-                              <div class="banner-form__control-box rounded">
+                              <div class="banner-form__controls-box rounded" id="bannerForm">
                                     <div class="form-group">
+                                      <span class="fake-arrow"></span>
                                       <select class="form-control form-control-lg" id="location" name="location">
                                         <option>Looking for</option>
                                         <option>Teaching</option>
@@ -56,17 +66,17 @@
                                       </select>
                                     </div>
                                     <div class="form-group">
-                                      <input type="text" class="form-control form-control-lg" id="location" name="location" />
+                                      <input type="text" placeholder="select location" class="form-control form-control-lg" id="location" name="location" />
                                     </div>
                               </div>
-                              <button class="btn btn-primary">Search Now</button>
+                              <button class="btn btn-primary text-uppercase d-xs-none d-xxs-none d-sm-none d-md-block"><span class="icon"></span>Search Now</button>
                           </div>
                       </div>
                     </div>    
                   </div>
               </div>
             </section>
-            <section class="w-100 section-feature">
+            <section class="w-100 section-feature" id="sectionFeature">
               <div class="container">
                 <div class="row">
                   <div class="col-md-12 col-12">
@@ -247,7 +257,7 @@
                           <li class="testimonial-list__item"><figure class="testimonial-list__figure"><img src="img/samples/dummy4.jpg" alt=""/></figure></li>
                       </ul>                    
                    </div>
-                   <div class="col-md-7 col-lg-7 col-12">
+                   <div class="col-md-7 col-lg-7 col-12 offset-30">
                     <ul class="testimonial-list testimonial-list--content" id="testimonals2">
                       <li class="testimonial-list__item">
                         <p class="testimonial-list__desc">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis 

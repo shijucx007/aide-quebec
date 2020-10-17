@@ -14,6 +14,63 @@ body{
     @include box-shadow($zero, $zero, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.05));    
 }
 
+header{    
+    .navbar, .navbar-nav{
+        align-items: unset;
+        @include media-breakpoint-down(sm) {
+            align-items: center;
+            justify-content: space-between;
+        }
+    }
+    .navbar-brand{
+        a, img{
+            @include transition(all 0.5s ease);
+        }
+        @include media-breakpoint-down(sm) {
+            margin-right: auto !important;
+        }
+    }
+    .navbar-nav{
+        padding-top: $one-em * 0.9;        
+        &:nth-last-of-type(1){
+            @include media-breakpoint-down(sm) {
+                margin-left: auto !important;
+                display: flex;
+            }
+            li:last-child{
+                a{
+                    background-color: $color-blue;
+                    color: $color-white;
+                    padding: $one-em * 0.75 $one-em * 1.5;
+                    margin-left: $one-em * 0.75;
+                    @include media-breakpoint-down(sm) {
+                        padding: $one-em * 0.6 $one-em * 0.95;
+                    }
+                    @include borderradius($one-em * 0.25);
+                    &:hover{
+                        background-color: #0069d9;
+                    }
+                }
+            }
+        }
+    }
+    .nav-link{
+        padding: $one-em;
+        &:hover{
+            color: $color-black;
+        }
+    }
+    &.scrolling{
+        background-color: rgba($color: $color-white, $alpha: 0.5);
+        @include box-shadow($zero, $zero, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.1));  
+        .navbar-brand{
+            img{
+                max-height: $tenPercent * 7;
+            }
+        }
+    }
+}
+
 .banner{
     &-header{       
         position: relative;
@@ -34,14 +91,38 @@ body{
         }
         &:after{
             background: url(../../img/banner-bg.jpg) repeat-x center top;            
-        }        
+        }    
+        @include media-breakpoint-down(sm) {
+            &:before, &:after{
+                display: none;
+            }
+            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fbc22a+0,fdd343+100 */
+            background: #fbc22a; /* Old browsers */
+            background: -moz-linear-gradient(top,  #fbc22a 0%, #fdd343 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(top,  #fbc22a 0%,#fdd343 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(to bottom,  #fbc22a 0%,#fdd343 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbc22a', endColorstr='#fdd343',GradientType=0 ); /* IE6-9 */
+
+        }
     }
     &-main{
-        background: url(../../img/banner.jpg) no-repeat center top;
+        background: url(../../img/banner.jpg) no-repeat center top;        
+        padding-top: 134px;
         min-height: 764px;
         width: $fullsize;
         position: relative;
         z-index: 1;
+        @include media-breakpoint-down(sm) {
+            background: url(../../img/banner-m.jpg) no-repeat center bottom;
+            background-size: $tenPercent * 10 auto;
+            padding-top: 84px;
+            min-height: 500px;
+        }
+        @include media-breakpoint-down(xs) {
+            background-size: $fullsize auto;
+            padding-top: 84px;
+            min-height: 400px;
+        }
     }
     header{
         background-color: transparent;
@@ -51,35 +132,98 @@ body{
     &-form{
         max-width: 412px;
         padding-top: $one-em * 3.5;
+        @include media-breakpoint-down(sm) {
+            padding-top: $one-em * .5;
+            max-width: $fullsize;
+        }
         &__title{
             color: $color-grey-black;
             font-size: $default-font-size * 2.65;
             font-weight: $font-weight-light;
             line-height: 1.3;
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size * 1.65;
+                text-align: center;
+            }
+            @include media-breakpoint-down(xs) {
+                font-size: $default-font-size * 1.35;
+            }
         }
-        &__control-box{
-            @extend .drop-shadow;
-            margin: $one-em $zero;
+        &__controls-box{
+            @include box-shadow($zero, $zero, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.15)); 
+            margin: $one-em * 1.5 $zero;
             background-color: $color-white;
             padding: $one-em * 0.5 $zero;
+            @include media-breakpoint-down(sm) {
+                position: absolute;
+                max-width: 420px;
+                width: $fullsize;
+                left: $halfsize;
+            }
+            @include media-breakpoint-down(xs) {
+                max-width: 320px;
+            }
             .form-group{
                 margin: $zero;
-                //padding-right: $one-em;
+                position: relative;
+                .fake-arrow{
+                    position: absolute;
+                    height: $fullsize - $fivePercent;
+                    width: $one-em * 2.2;
+                    background-color: $color-white;
+                    right: $tenPix - 2;
+                    top: $zero;
+                    z-index: 1;
+                    pointer-events: none;
+                    @include rotate(90deg);
+                    &:before, &:after{
+                        content: '';
+                        height: $onePix * 2;
+                        width: $onePix * 8;
+                        background-color: rgba($color: $color-dark, $alpha: 1);
+                        position: absolute;
+                        right: $fivePix * 3;
+                        top: calc(#{$halfsize} - 2px);
+                        opacity: 0.4;
+                        z-index: 5;
+                    }   
+                    &:before{
+                        @include rotate(-45deg);
+                        margin: 2px $zero $zero -2px;
+                    }
+                    &:after{
+                        @include rotate(45deg);
+                        margin: -3px $zero $zero -2px;
+                    } 
+                }
+                select{
+                    padding-right: $one-em * 2.5;
+                }
                 &:first-of-type{                   
-                    padding-bottom: $one-em * 0.25;
+                    padding-bottom: $one-em * 0.25;                    
                 }
                 &:last-of-type{
                     border-top: $onePix solid $border-color-grey;
-                     padding-top: $one-em * 0.25;
-                     .form-control{
-                        background: $color-white url(../../img/location.gif) no-repeat calc(#{$fullsize} - #{$tenPix}) center !important;
-                        padding-right: $one-em * 2;                        
+                    padding-top: $one-em * 0.25;
+                    &:after{
+                        content: '';
+                        background: $color-white url(../../img/location.gif) no-repeat center center;
+                        top: $one-em;
+                        right: $one-em;
+                        display: block;
+                        width: $one-em;
+                        height: $one-em * 1.5;
+                        position: absolute;
+                    }
+                     .form-control{  
+                        background: $color-white !important;                      
+                        padding-right: $one-em * 2.2;                        
                      }
                 }
             }
             .form-control{
                 background-color: transparent!important;
-                border-color: transparent;
+                border-color: $color-white;
                 color: #9d9d9d;
                 @include borderradius($zero);                
                 &:focus{
@@ -87,6 +231,17 @@ body{
                     color:$color-dark;
                     box-shadow: none;
                 }
+            }
+        }
+        .btn{
+            font-size: $default-font-size;
+            padding: $one-em * 0.9 $one-em * 1.25;
+            margin-top: $one-em * 0.75;            
+            .icon{
+                background: transparent url(../../images/icon-search.png) no-repeat $zero 4px;
+                display: inline-block;
+                height: $one-em *1.12;
+                width: $one-em * 1.25;                
             }
         }
     }
@@ -100,6 +255,9 @@ section{
     &-feature{
         background-color: $color-white;
         padding: $section-padding;
+        @include media-breakpoint-down(sm) {
+            padding-top: $one-em * 6;
+        }
         &__list{
             display: flex;    
             @include media-breakpoint-down(sm) {
@@ -112,26 +270,38 @@ section{
             width: 33.33%;
             @include media-breakpoint-down(sm) {
                 width: $fullsize;
-                padding: $one-em * 3.5 $zero;
+                padding: $one-em * 2.5 $zero $zero;
             }
         }
         &__title{
             font-size: $default-font-size * 1.25;
             font-weight: $font-weight-bold;
             margin: $one-em * 0.75 $zero $one-em * 0.45;
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size * 1.05;
+            }
         }
         &__desc{
             font-size: $default-font-size * 0.93;
             font-weight: $font-weight-light;
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size * .8;
+            }
         }
     }
     &-service{
         background-color: #f3f3f3;
         padding: $section-padding;
+        @include media-breakpoint-down(sm) {
+            padding-top: $one-em * 2.5;
+        }
     }
     &-provider{
         background-color: $color-white;
         padding: $section-padding;
+        @include media-breakpoint-down(sm) {
+            padding: $one-em * 2.5 $zero $zero;
+        }
     }
     &-download{
         background-color: #fdbf25;
@@ -142,14 +312,34 @@ section{
             font-weight: $font-weight-light;
             line-height: 1.3;
             padding-top: $one-em * 2;
+            @include media-breakpoint-down(sm) {
+                padding-top: $zero;
+                font-size: $default-font-size * 1.65;
+                text-align: center;
+            }
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size * 1.35;                
+            }
         }
         &__desc{
             font-size: $default-font-size * 1.125;
             padding: $one-em * 1.75 $zero;
             line-height: 1.4;
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size;
+                text-align: center;
+            }
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size * 0.8;
+            }
         }
         &__links{
             display: flex;
+            @include media-breakpoint-down(sm) {
+                max-width: $tenPercent * 8;
+                margin-left: $tenPercent;
+                padding-bottom: $one-em * .75;
+            }
             a{
                 margin-right: ($tenPix * 2 ) - 2;
                 &:last-child{
@@ -165,11 +355,28 @@ section{
     &-testimonial{
         background-color: $color-white;
         padding: $one-em * 6.5 $zero $one-em * 7.5;
+        @include media-breakpoint-down(sm) {
+            padding: $one-em * 2.5 $zero;
+        }
         .section__title{
             font-size: $default-font-size * 2.625;
             font-weight: $font-weight-light;
             padding-bottom: $one-em * 1.6;
             margin: $zero;
+            @include media-breakpoint-down(sm) {
+                font-size: $default-font-size* 1.65;
+                text-align: center;
+                line-height: 1.2;
+                padding-bottom: $one-em * 0.8;
+            }
+            @include media-breakpoint-down(xs) {
+                font-size: $default-font-size* 1.35;
+            }
+        }
+    }
+    &__caption{
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.9;
         }
     }
     &__title{
@@ -177,6 +384,9 @@ section{
         font-weight: $font-weight-bold;
         color: $color-deep-grey;
         margin-bottom: $one-em * 0.75;
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 1.25;
+        }
     }
 }
 
@@ -192,6 +402,7 @@ section{
 .teaser-box2{
     padding: $one-em * 2 $zero $one-em * 2.5;
     display: flex;
+    flex-wrap: wrap;
     &__tiles{
         margin-right: $onePercent * 2;
         margin-bottom: $one-em * 1.25;
@@ -206,13 +417,20 @@ section{
          &:nth-of-type(4n){
              margin-right: $zero;
              @include media-breakpoint-down(md) {
-                 margin-right: $tenPix * 2;
+                 margin-right: $zero;
              }
          }
          &:nth-of-type(2n){
-             @include media-breakpoint-down(md) {
-                 margin-right: 0;
+            @include media-breakpoint-down(md) {
+                margin-right: $zero;
+            }
+             @include media-breakpoint-down(sm) {
+                 margin-right: $zero;
              }
+         }
+         @include media-breakpoint-down(xs) {
+            width: $fullsize;
+            margin-right: $zero !important;
          }
         a, figure{
              display: block;
@@ -227,6 +445,10 @@ section{
             display: block;
             max-width: $fullsize;
             position: relative;
+        }
+        @include media-breakpoint-down(md) {
+            max-width: unset;
+            width: $fullsize;
         }
     }   
     &__badge{
@@ -247,6 +469,12 @@ section{
         color: $color-blue;
         display: block;
         padding: $one-em * .85 $zero;
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.95;
+        }
+        @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 0.8;
+        }
     }
     &__title{
         color: $color-deep-grey;
@@ -254,11 +482,23 @@ section{
         font-weight: $font-weight-semi-bold;
         font-size: $default-font-size * 1.1;
         padding-bottom: $one-em * .5;
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size;
+        }
+        @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 0.9;
+        }
     }
     &__desc{
         display: block;
         font-size: $default-font-size *.875;
         padding-bottom: $one-em * 1.1;
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * 0.8;
+        }
+        @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * 0.75;
+        }
     }
     &__status{
         display: block;
@@ -291,12 +531,25 @@ section{
 .testimonial-list{ 
     font-size: $default-font-size * 1.125;
     font-weight: $font-weight-light;
+    @include media-breakpoint-down(sm) {
+        text-align: center;
+    }
     &__item{
         min-height: $tenPix * 23.4;
+        @include media-breakpoint-down(xs) {
+            min-height: $tenPix * 20;
+        }
     }
     &__figure{
         max-width: 404px;  
         position: relative; 
+        @media (max-width: 992px) and (min-width: 768px){
+            margin-right: 18px;
+        }
+        @include media-breakpoint-down(sm) {
+            margin: $zero 18px;
+            max-width: $fullsize;
+        }
         &:after{
             background: $color-blue url(../../images/quote.png) no-repeat $halfsize $halfsize;
             content: '';
@@ -307,6 +560,18 @@ section{
             right: $zero;
             margin-right: -28px;
             @include borderradius($halfsize);
+            @media (max-width: 992px) and (min-width: 768px){
+                width: $tenPix * 3.6;
+                height: $tenPix * 3.6;
+                background-size: $halfsize auto;
+                margin-right: -18px;
+            }
+            @include media-breakpoint-down(sm) {
+                width: $tenPix * 3.6;
+                height: $tenPix * 3.6;
+                background-size: $halfsize auto;
+                margin-right: -18px;
+            }
         }
     }
     &--figure + .lSAction{
@@ -315,14 +580,36 @@ section{
     &__desc{
         padding-bottom: $one-em * 2.2;
         line-height: 1.4;
+        @include media-breakpoint-down(sm) {
+            text-align: center;
+            font-size: $default-font-size * 1.1;
+            padding-top: $one-em * 0.75;
+        }
+        @include media-breakpoint-down(xs) {
+            text-align: center;
+            font-size: $default-font-size * .85;
+        }
     }
     &__author{
         font-size: $default-font-size * 1.125;
         font-weight:$font-weight-semi-bold;
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size;
+        }
+        @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * .85;
+        }
     }
     &__designation{
         font-size: $default-font-size * .875;
-    }    
+        @include media-breakpoint-down(sm) {
+            font-size: $default-font-size * .8;
+        }
+        @include media-breakpoint-down(xs) {
+            font-size: $default-font-size * .75;
+        }
+    }  
+     
 }
 
 .lSAction{
@@ -330,6 +617,9 @@ section{
     position: relative;
     text-align: left;
     display: flex;
+    @include media-breakpoint-down(sm) {
+        justify-content: center;
+    }
     > a{
         background-color: #f1f1f1;
         position: relative!important;
@@ -371,5 +661,14 @@ section{
                 opacity: 1;
             }
         }
+    }
+}
+
+@include media-breakpoint-down(md) {   
+    .teaser-box__caption{
+        font-size: $default-font-size * .875;
+    }
+    .btn-view-more{
+        margin: $zero;
     }
 }

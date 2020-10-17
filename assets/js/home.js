@@ -10,13 +10,16 @@ import {Utils, Resizer, Scroller} from "web-utility-js";
 
 const utils = new Utils();
 const resizer = new Resizer();
+const scroller = new Scroller();
 utils.init();
 resizer.init();
+scroller.init();
 
 let components = {
     init: function(){
         this.squareContainer();
         this.lightSlider();
+        this.getBannerFormPosition();
     },
     lightSlider: function(){
         let slider1 = $("#testimonals1").lightSlider({
@@ -45,8 +48,27 @@ let components = {
             } 
         });  
     },
+    getBannerFormPosition: function(){
+        var bannerForm = $('#bannerForm'), 
+        sectionFeaturePos = $('#sectionFeature').offset().top,
+        winWidth = $(window).width(),     
+        paddingAdjustments = 55, 
+        bannerFormMarginLeft = bannerForm.width()/2;        
+        if( winWidth > 747){ bannerFormMarginLeft = 0 }
+        if( winWidth > 556){ paddingAdjustments = 48 }
+        var bannerFormHeight = bannerForm.outerHeight() + paddingAdjustments;
+        bannerForm.css({top: sectionFeaturePos.toFixed(0) -  bannerFormHeight.toFixed(0), marginLeft: -Math.abs(bannerFormMarginLeft).toFixed(0)});
+    },
     resize: function(){
         components.squareContainer();
+    },
+    scroll: function(){
+        var scrollTop = $(window).scrollTop(), header = $('header');
+        if(scrollTop > 70){
+            header.addClass('scrolling');
+        }else{
+            header.removeClass('scrolling');
+        }
     },
     squareContainer: function(){
         let squareContainer = $('.teaser-box'), winWid = $(window).width();
@@ -61,3 +83,6 @@ let components = {
 }
 
 components.init();
+resizer.add("funcName", components.resize);
+resizer.add("funcName", components.getBannerFormPosition);
+scroller.add("funcName", components.scroll);

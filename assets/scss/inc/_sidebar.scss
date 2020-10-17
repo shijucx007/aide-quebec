@@ -24,7 +24,7 @@
             max-width: $tenPercent * 8;
             background-color: $color-white; 
             position: relative;       
-            overflow: scroll;       
+            overflow: auto;       
         }            
         .card, .profile-menu{                
             margin-bottom: $zero;
