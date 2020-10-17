@@ -955,10 +955,11 @@ p{
 .form-two-col{ 
     .edit-profile__form-wrapper{
         padding-bottom: $one-em * 2;
-    }     
-    @include media-breakpoint-down(sm) {
-        padding: $one-em $zero;
-    }
+        @include media-breakpoint-down(sm) {
+            padding-bottom: $one-em
+        }
+    }   
+    
     &__item{
         width: $tenPercent * 8;
         @include media-breakpoint-down(md) {
