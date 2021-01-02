@@ -56,8 +56,8 @@ let components = {
         bannerFormMarginLeft = bannerForm.width()/2;        
         if( winWidth > 747){ bannerFormMarginLeft = 0 }
         if( winWidth > 556){ paddingAdjustments = 48 }
-        var bannerFormHeight = bannerForm.outerHeight() + paddingAdjustments;
-        bannerForm.css({top: sectionFeaturePos.toFixed(0) -  bannerFormHeight.toFixed(0), marginLeft: -Math.abs(bannerFormMarginLeft).toFixed(0)});
+        var bannerFormHeight = bannerForm.outerHeight();
+        bannerForm.css({top: sectionFeaturePos.toFixed(0) - (bannerFormHeight.toFixed(0) * 2), marginLeft: -Math.abs(bannerFormMarginLeft).toFixed(0)});
     },
     resize: function(){
         components.squareContainer();

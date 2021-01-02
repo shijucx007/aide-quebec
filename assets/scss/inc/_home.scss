@@ -153,12 +153,14 @@ header{
             @include box-shadow($zero, $zero, (($tenPix * 2)-2), rgba($color: $color-black, $alpha: 0.15)); 
             margin: $one-em * 1.5 $zero;
             background-color: $color-white;
-            padding: $one-em * 0.5 $zero;
+            //padding: $one-em * 0.5 $zero;
             @include media-breakpoint-down(sm) {
+                margin: $zero;
                 position: absolute;
                 max-width: 420px;
                 width: $fullsize;
                 left: $halfsize;
+                @include translate(0, -10px);
             }
             @include media-breakpoint-down(xs) {
                 max-width: 320px;
@@ -203,7 +205,7 @@ header{
                     padding-bottom: $one-em * 0.25;                    
                 }
                 &:last-of-type{
-                    border-top: $onePix solid $border-color-grey;
+                    //border-top: $onePix solid $border-color-grey;
                     padding-top: $one-em * 0.25;
                     &:after{
                         content: '';
